@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Almond Systems — Engineering Africa's Digital Infrastructure | DevOps, Fintech & Escrow APIs</title>
+<meta name="description" content="Almond Systems is a CAC-registered Nigerian software engineering company (BN 2180265) delivering DevOps, cloud hosting, eCommerce, backend APIs and PCI-DSS fintech integration. Builders of AlmondPay — the escrow-secured payments API for African marketplaces. 13+ years of production experience.">
+<meta name="keywords" content="Almond Systems, AlmondPay, escrow payments Nigeria, escrow API Africa, fintech integration Nigeria, Paystack Flutterwave Interswitch developer, DevOps Nigeria, cloud hosting Uyo, backend API development, eCommerce developer Nigeria, Kpono-Abasi Akpabio, software company Akwa Ibom">
+<meta name="author" content="Kpono-Abasi Akpabio — Almond Systems">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0E1730">
+<link rel="canonical" href="https://almondsystems.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Almond Systems">
+<meta property="og:title" content="Almond Systems — Engineering Africa's Digital Infrastructure">
+<meta property="og:description" content="DevOps, cloud, eCommerce & PCI-DSS fintech engineering from Nigeria. Builders of AlmondPay — the escrow-secured payments API for African commerce.">
+<meta property="og:url" content="https://almondsystems.com/">
+<meta property="og:image" content="https://almondsystems.com/assets/logo/logo-as.png">
+<meta property="og:locale" content="en_NG">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Almond Systems — Engineering Africa's Digital Infrastructure">
+<meta name="twitter:description" content="DevOps, cloud, eCommerce & fintech engineering from Nigeria. Builders of AlmondPay — escrow-secured payments for African commerce.">
+<meta name="twitter:image" content="https://almondsystems.com/assets/logo/logo-as.png">
+
+<link rel="icon" type="image/png" href="assets/icons/almond-icon.png">
+<link rel="apple-touch-icon" href="assets/icons/almond-icon.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://almondsystems.com/#org",
+      "name": "Almond Systems",
+      "legalName": "Almond Systems (BN 2180265)",
+      "url": "https://almondsystems.com/",
+      "logo": "https://almondsystems.com/assets/logo/logo-as.png",
+      "email": "kingkpono@gmail.com",
+      "telephone": "+2349168775034",
+      "foundingDate": "2025",
+      "founder": { "@type": "Person", "name": "Kpono-Abasi Akpabio", "jobTitle": "Founder & CEO" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Uyo", "addressRegion": "Akwa Ibom", "addressCountry": "NG" },
+      "sameAs": [
+        "https://www.linkedin.com/in/kpono-abasi-akpabio-86549b34",
+        "https://github.com/kingkpono"
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "AlmondPay",
+      "description": "Escrow-secured payments and checkout API for African marketplaces and SMEs — virtual accounts, escrow hold-and-release, multi-gateway orchestration, split payments and WhatsApp checkout links.",
+      "brand": { "@id": "https://almondsystems.com/#org" },
+      "category": "Fintech / Payments API"
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://almondsystems.com/",
+      "name": "Almond Systems",
+      "publisher": { "@id": "https://almondsystems.com/#org" }
+    }
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+/* ══ TOKENS ══ */
+:root{
+  --navy:#0E1730;--navy2:#101d3d;--navy3:#13234a;
+  --teal:#28C7C0;--teal2:#1ea7a1;--teal3:rgba(40,199,192,.14);
+  --teal4:rgba(40,199,192,.06);--tealb:rgba(40,199,192,.28);
+  --white:#fff;--w90:rgba(255,255,255,.9);--w70:rgba(255,255,255,.7);
+  --w50:rgba(255,255,255,.5);--w30:rgba(255,255,255,.3);
+  --w15:rgba(255,255,255,.15);--w08:rgba(255,255,255,.08);
+  --w04:rgba(255,255,255,.04);
+  --card:rgba(255,255,255,.04);--cardb:rgba(255,255,255,.1);
+  --fd:'Sora',sans-serif;--fb:'Inter',sans-serif;
+  --r8:8px;--r12:12px;--r16:16px;--r20:20px;--r50:50px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* ══ PRELOADER ══ */
+#preloader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--navy);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  transition:opacity .5s ease,visibility .5s ease;
+}
+#preloader.gone{opacity:0;visibility:hidden}
+.pl-stage{position:relative;width:150px;height:150px;display:flex;align-items:center;justify-content:center}
+.pl-ring{position:absolute;inset:0;animation:almRing 3.4s linear infinite}
+.pl-mark{animation:almGlowPulse 2.4s ease-in-out infinite}
+.pl-mark .pl-left{animation:almLeftIn 2.4s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:center center}
+.pl-mark .pl-right{animation:almRightIn 2.4s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:center center}
+.pl-wordmark{display:flex;align-items:center;gap:2px;font-family:'Fredoka',sans-serif;font-weight:500;font-size:22px;color:#fff;letter-spacing:-.01em}
+.pl-wordmark svg{margin:0 1px;filter:drop-shadow(0 2px 9px rgba(31,200,210,.55))}
+#preloader .pl-text{font-family:var(--fd);font-size:.72rem;font-weight:600;color:var(--w50);letter-spacing:.18em;text-transform:uppercase}
+@keyframes almRing{to{transform:rotate(360deg)}}
+@keyframes almGlowPulse{0%,100%{filter:drop-shadow(0 0 8px rgba(30,207,213,.45))}50%{filter:drop-shadow(0 0 26px rgba(30,207,213,.95))}}
+@keyframes almLeftIn{0%{transform:translateX(-34px) rotate(-8deg);opacity:0}55%{transform:translateX(2px) rotate(1deg);opacity:1}70%{transform:translateX(0) rotate(0)}100%{transform:translateX(0)}}
+@keyframes almRightIn{0%{transform:translateX(34px) rotate(8deg);opacity:0}55%{transform:translateX(-2px) rotate(-1deg);opacity:1}70%{transform:translateX(0) rotate(0)}100%{transform:translateX(0)}}
+
+/* ══ BRAND LOCKUP ══ */
+.brand-lock{display:flex;align-items:center;gap:2px;text-decoration:none;line-height:1}
+.brand-lock .bl-word{font-family:'Fredoka',sans-serif;font-weight:500;font-size:27px;color:#fff;letter-spacing:-.01em;line-height:1}
+.brand-lock .bl-mark{margin:0 1px;filter:drop-shadow(0 2px 9px rgba(31,200,210,.55))}
+.brand-lock.sm .bl-word{font-size:22px}
+
+/* ══ NAV ══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:68px;
+  background:#13234a;
+  border-bottom:1px solid rgba(40,199,192,.18);
+  transition:background .3s,box-shadow .3s;
+}
+nav.scrolled{background:rgba(19,35,74,.97);backdrop-filter:blur(16px);box-shadow:0 4px 32px rgba(0,0,0,.4)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:44px;object-fit:contain;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--w70);font-size:.87rem;font-weight:500;transition:color .2s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--teal);border-radius:2px;transition:width .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#25d366;color:#fff;
+  padding:.48rem 1.1rem;border-radius:var(--r50);
+  font-weight:700;font-size:.83rem;
+  transition:background .2s,transform .2s;
+}
+.btn-wa:hover{background:#1ebe59;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;
+  background:rgba(19,35,74,.98);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--w15);
+  padding:1.5rem 5%;z-index:899;
+  flex-direction:column;gap:1.2rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--w80,var(--w70));font-size:1rem;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--w08)}
+
+/* ══ HERO — creative ══ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:100px 5% 4rem;
+}
+/* animated mesh gradient */
+.hero-canvas{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 30%,rgba(40,199,192,.09) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 70%,rgba(17,35,72,.8) 0%,transparent 70%),
+    radial-gradient(ellipse 100% 80% at 50% 100%,rgba(40,199,192,.05) 0%,transparent 60%);
+  animation:meshAnim 12s ease-in-out infinite alternate;
+}
+@keyframes meshAnim{
+  0%{background-position:0% 0%,100% 100%,50% 100%}
+  100%{background-position:10% 10%,90% 90%,60% 90%}
+}
+/* grid lines */
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:52px 52px;
+}
+/* floating orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
+.orb1{width:420px;height:420px;background:rgba(40,199,192,.06);top:-100px;right:-80px;animation:floatOrb 9s ease-in-out infinite}
+.orb2{width:280px;height:280px;background:rgba(30,207,213,.06);bottom:80px;left:-60px;animation:floatOrb 11s ease-in-out infinite reverse}
+.orb3{width:180px;height:180px;background:rgba(40,199,192,.05);bottom:40%;right:15%;animation:floatOrb 7s ease-in-out infinite}
+@keyframes floatOrb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1200px;width:100%;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;
+}
+.hero-left{}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--teal3);border:1px solid var(--tealb);
+  color:var(--teal);padding:.35rem 1rem;border-radius:var(--r50);
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:1.4rem;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-family:var(--fd);
+  font-size:clamp(2.4rem,4.5vw,3.9rem);
+  font-weight:900;line-height:1.08;
+  letter-spacing:-.02em;
+}
+.hero h1 .line2{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--teal),#1ECFD5);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(.93rem,1.5vw,1.1rem);
+  color:var(--w70);max-width:520px;
+  margin:1.4rem 0 2.2rem;line-height:1.85;
+}
+.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal);color:var(--navy);
+  padding:.8rem 1.8rem;border-radius:var(--r50);
+  font-weight:700;font-size:.9rem;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  box-shadow:0 0 0 rgba(40,199,192,0);
+}
+.btn-primary:hover{transform:translateY(-2px);background:var(--teal2);box-shadow:0 8px 28px rgba(40,199,192,.28)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--w30);color:var(--white);
+  padding:.8rem 1.8rem;border-radius:var(--r50);
+  font-weight:500;font-size:.9rem;
+  transition:border-color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:var(--teal);background:var(--teal4)}
+
+/* hero right — floating cards */
+.hero-right{position:relative;height:440px}
+.hero-card{
+  position:absolute;background:rgba(255,255,255,.06);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--w15);border-radius:var(--r16);
+  padding:1.2rem 1.4rem;
+}
+.hc1{top:0;right:0;width:62%;animation:floatCard1 6s ease-in-out infinite}
+.hc2{bottom:30px;left:0;width:55%;animation:floatCard2 7s ease-in-out infinite}
+.hc3{top:50%;right:5%;transform:translateY(-50%);width:42%;animation:floatCard3 8s ease-in-out infinite}
+@keyframes floatCard1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes floatCard2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes floatCard3{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 10px))}}
+.hc-label{font-size:.7rem;font-weight:700;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+.hc-val{font-family:var(--fd);font-size:1.6rem;font-weight:800;line-height:1}
+.hc-sub{font-size:.75rem;color:var(--w50);margin-top:.25rem}
+.hc-bar{height:4px;border-radius:4px;background:var(--w15);margin-top:.8rem;overflow:hidden}
+.hc-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--teal),#1ECFD5);animation:barGrow 2s ease forwards}
+@keyframes barGrow{from{width:0}to{width:var(--w)}}
+.hc-dots{display:flex;gap:5px;margin-top:.8rem}
+.hc-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);opacity:.3}
+.hc-dot.on{opacity:1;animation:blink 2s ease-in-out infinite}
+.hc-stack{display:flex;flex-direction:column;gap:.5rem}
+.hc-row{display:flex;align-items:center;justify-content:space-between;font-size:.78rem}
+.hc-row .val{font-weight:700;color:var(--teal)}
+
+/* ══ STATS ══ */
+.stats-bar{background:var(--navy2);border-top:1px solid var(--w08);border-bottom:1px solid var(--w08);padding:2.2rem 5%}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.stat-num{font-family:var(--fd);font-size:2.3rem;font-weight:800;background:linear-gradient(135deg,var(--teal),#1ECFD5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{color:var(--w50);font-size:.8rem;margin-top:.2rem}
+
+/* ══ SECTION COMMON ══ */
+.section{padding:6rem 5%}
+.sec-inner{max-width:1200px;margin:0 auto}
+.sec-tag{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:6px}
+.sec-title{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;line-height:1.15}
+.sec-sub{color:var(--w70);font-size:.97rem;margin-top:.9rem;max-width:560px;line-height:1.85}
+
+/* ══ FOUNDER SPLIT ══ */
+.founder-split{background:var(--navy2);border-top:1px solid var(--w08);border-bottom:1px solid var(--w08);padding:5.5rem 5%}
+.founder-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.f-label{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:6px}
+.founder-grid h2{font-family:var(--fd);font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:700;line-height:1.2;margin-bottom:1.1rem}
+.founder-grid p{color:var(--w70);font-size:.95rem;line-height:1.85;margin-bottom:1.1rem}
+.video-wrap{border-radius:var(--r16);overflow:hidden;border:1px solid var(--cardb);background:var(--card);position:relative}
+.video-wrap video{width:100%;display:block;max-height:320px;object-fit:cover}
+.v-tag{position:absolute;bottom:10px;left:10px;background:rgba(12,26,46,.9);backdrop-filter:blur(6px);color:var(--teal);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:5px;border:1px solid var(--tealb)}
+
+/* live products list */
+.live-list{display:flex;flex-direction:column;gap:.65rem;margin-top:1.5rem}
+.live-item{
+  display:flex;align-items:center;gap:11px;
+  background:var(--card);border:1px solid var(--cardb);
+  border-radius:var(--r12);padding:.85rem 1rem;
+  transition:border-color .2s,background .2s;
+}
+.live-item:hover{border-color:var(--tealb);background:var(--teal4)}
+.li-icon{width:34px;height:34px;border-radius:8px;background:var(--teal3);border:1px solid var(--tealb);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0;font-size:.95rem}
+.li-text{flex:1;min-width:0}
+.li-text strong{display:block;font-size:.88rem;font-weight:700}
+.li-text span{color:var(--w50);font-size:.74rem}
+.li-arr{color:var(--teal);font-size:.95rem;flex-shrink:0}
+
+/* ══ SERVICES ══ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
+.svc{
+  background:var(--card);border:1px solid var(--cardb);
+  border-radius:var(--r16);padding:1.8rem;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .25s;cursor:default;
+}
+.svc-glow{position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:var(--teal3);filter:blur(40px);pointer-events:none;opacity:0;transition:opacity .4s}
+.svc:hover{border-color:var(--tealb);transform:translateY(-5px)}
+.svc:hover .svc-glow{opacity:1}
+.svc-icon{width:48px;height:48px;border-radius:var(--r12);background:var(--teal3);border:1px solid var(--tealb);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--teal);margin-bottom:1.1rem}
+.svc h3{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
+.svc p{color:var(--w70);font-size:.88rem;line-height:1.75}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:1rem}
+.tag{font-size:.68rem;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--w04);border:1px solid var(--w08);color:var(--w50)}
+.svc-cta{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-size:.82rem;font-weight:600;margin-top:1rem;transition:gap .2s}
+.svc-cta:hover{gap:9px}
+
+/* ══ FOUNDER SECTION ══ */
+.journey{background:var(--navy2)}
+.journey-wrap{display:grid;grid-template-columns:320px 1fr;gap:4.5rem;align-items:start}
+
+/* CEO card */
+.ceo-card{background:var(--card);border:1px solid var(--cardb);border-radius:var(--r20);overflow:hidden;position:sticky;top:86px}
+.ceo-card img{width:100%;display:block;object-fit:cover;aspect-ratio:4/5}
+.ceo-info{padding:1.3rem}
+.ceo-info h3{font-family:var(--fd);font-size:1.2rem;font-weight:700}
+.ceo-role{color:var(--teal);font-size:.77rem;font-weight:700;letter-spacing:.04em;margin-top:3px}
+.ceo-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:.9rem}
+.cbadge{font-size:.68rem;padding:3px 9px;border-radius:20px;background:var(--teal3);border:1px solid var(--tealb);color:var(--teal);font-weight:600}
+.ceo-socials{display:flex;gap:7px;margin-top:1rem}
+.soc{width:32px;height:32px;border-radius:7px;background:var(--w08);border:1px solid var(--w15);display:flex;align-items:center;justify-content:center;color:var(--w70);font-size:.9rem;transition:background .2s,color .2s}
+.soc:hover{background:var(--teal3);color:var(--teal)}
+
+/* bio */
+.founder-bio h2{font-family:var(--fd);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;margin-bottom:1rem}
+.founder-bio p{color:var(--w70);font-size:.95rem;line-height:1.85;margin-bottom:1rem}
+
+/* timeline — compact, no desc */
+.timeline{position:relative;margin-top:2.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--teal),rgba(40,199,192,.08));border-radius:2px}
+.tl-item{position:relative;padding:0 0 1.8rem 2.2rem}
+.tl-item::before{content:'';position:absolute;left:-5px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2.5px solid var(--navy2);box-shadow:0 0 0 3px var(--teal3)}
+.tl-year{color:var(--teal);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem}
+.tl-co{font-family:var(--fd);font-weight:700;font-size:1rem}
+.tl-role{color:var(--w50);font-size:.82rem;margin-bottom:.5rem}
+.tl-tags{display:flex;flex-wrap:wrap;gap:4px}
+
+/* ══ CAREER STRIP ══ */
+.strip-section{background:var(--navy3);padding:4rem 0;overflow:hidden;border-top:1px solid var(--w08);border-bottom:1px solid var(--w08)}
+.strip-header{padding:0 5%;max-width:1200px;margin:0 auto 2rem}
+.strip-track{
+  display:flex;gap:1rem;
+  width:max-content;
+  animation:stripScroll 35s linear infinite;
+}
+.strip-track:hover{animation-play-state:paused}
+.strip-photo{
+  width:280px;height:200px;flex-shrink:0;
+  border-radius:var(--r12);overflow:hidden;
+  border:1px solid var(--cardb);position:relative;
+}
+.strip-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.strip-photo:hover img{transform:scale(1.06)}
+.strip-photo-cap{position:absolute;bottom:0;left:0;right:0;padding:.65rem .9rem;background:linear-gradient(to top,rgba(12,26,46,.96),transparent)}
+.strip-photo-cap h4{font-size:.82rem;font-weight:700}
+.strip-photo-cap p{font-size:.68rem;color:var(--teal);margin-top:1px}
+@keyframes stripScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══ PORTFOLIO ══ */
+.port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:3rem}
+.port-card{
+  background:var(--card);border:1px solid var(--cardb);
+  border-radius:var(--r16);overflow:hidden;
+  transition:border-color .3s,transform .2s;
+}
+.port-card:hover{border-color:var(--tealb);transform:translateY(-4px)}
+.port-thumb{
+  height:140px;background:linear-gradient(135deg,var(--navy2),var(--navy3));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;color:var(--teal);border-bottom:1px solid var(--w08);
+  position:relative;overflow:hidden;
+}
+.port-thumb::before{content:'';position:absolute;inset:0;background:var(--teal3);opacity:0;transition:opacity .3s}
+.port-card:hover .port-thumb::before{opacity:1}
+.port-thumb .domain{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:.7rem;color:var(--w50);font-family:monospace}
+.port-body{padding:1.2rem}
+.port-status{display:inline-block;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(40,199,192,.12);border:1px solid var(--tealb);color:var(--teal);margin-bottom:.55rem;text-transform:uppercase;letter-spacing:.06em}
+.port-body h4{font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+.port-body p{color:var(--w50);font-size:.82rem;line-height:1.6}
+.port-link{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-size:.78rem;font-weight:600;margin-top:.8rem}
+
+/* ══ PROCESS ══ */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.proc-step{padding:1.5rem;background:var(--card);border:1px solid var(--cardb);border-radius:var(--r16);transition:border-color .3s}
+.proc-step:hover{border-color:var(--tealb)}
+.proc-num{font-family:var(--fd);font-size:2.8rem;font-weight:900;color:rgba(40,199,192,.12);line-height:1;margin-bottom:.5rem}
+.proc-step h4{font-weight:700;font-size:.95rem;margin-bottom:.45rem}
+.proc-step p{color:var(--w50);font-size:.85rem;line-height:1.7}
+
+/* ══ CTA ══ */
+.cta-wrap{padding:0 5% 6rem}
+.cta-inner{
+  max-width:1100px;margin:0 auto;
+  background:linear-gradient(135deg,rgba(40,199,192,.1),rgba(40,199,192,.03));
+  border:1px solid var(--tealb);border-radius:var(--r20);padding:4rem;text-align:center;
+}
+.cta-inner h2{font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;margin-bottom:.9rem}
+.cta-inner p{color:var(--w70);font-size:1rem;margin-bottom:2rem}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.cta-inner .note{margin-top:2rem;font-size:.78rem;color:var(--w50)}
+
+/* ══ FOOTER ══ */
+footer{background:var(--navy2);border-top:1px solid var(--w08);padding:3rem 5% 2rem}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.f-brand{display:flex;align-items:center;gap:10px;margin-bottom:.9rem}
+.f-brand img{height:34px;object-fit:contain}
+.f-desc{color:var(--w50);font-size:.83rem;line-height:1.75}
+footer h5{font-weight:700;font-size:.85rem;margin-bottom:1rem;color:var(--white)}
+footer ul{list-style:none}
+footer ul li{margin-bottom:.5rem}
+footer ul a{color:var(--w50);font-size:.83rem;transition:color .2s}
+footer ul a:hover{color:var(--teal)}
+.footer-bottom{max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--w08);display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--w40,var(--w50));flex-wrap:wrap;gap:.5rem}
+.reg-pill{background:var(--w04);border:1px solid var(--w08);padding:3px 11px;border-radius:6px;font-size:.74rem}
+
+/* ══ REVEAL ══ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ══ FLAGSHIP PRODUCT ══ */
+.product{position:relative;overflow:hidden;background:var(--navy2);border-top:1px solid var(--w08);border-bottom:1px solid var(--w08)}
+.prod-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(ellipse 60% 50% at 50% 0%,rgba(40,199,192,.10),transparent 60%),
+  radial-gradient(circle at 85% 90%,rgba(30,207,213,.06),transparent 55%)}
+.prod-head{max-width:720px;margin:0 auto}
+.product .sec-title{font-size:clamp(2.6rem,5vw,4rem);background:linear-gradient(90deg,var(--teal),#1ECFD5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.prod-tagline{text-align:center;font-family:var(--fd);font-weight:600;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--white);margin-top:.5rem}
+
+.prod-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:1.4rem;align-items:center;margin:3.5rem auto 0;max-width:980px}
+.flow-card{background:var(--card);border:1px solid var(--cardb);border-radius:var(--r16);padding:1.6rem}
+.flow-problem{border-color:rgba(255,120,110,.25)}
+.flow-solution{border-color:var(--tealb);background:var(--teal4)}
+.flow-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--fd);font-weight:700;font-size:.82rem;color:#ff8a80;margin-bottom:1rem}
+.flow-badge.solved{color:var(--teal)}
+.flow-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.flow-list li{display:flex;align-items:flex-start;gap:9px;font-size:.87rem;color:var(--w70);line-height:1.5}
+.flow-list li .ti-x{color:#ff8a80;margin-top:2px;flex-shrink:0}
+.flow-list li .ti-check{color:var(--teal);margin-top:2px;flex-shrink:0}
+.flow-arrow{color:var(--teal);font-size:1.6rem;display:flex;justify-content:center}
+
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;align-items:start}
+.prod-features{display:flex;flex-direction:column;gap:1rem}
+.pf{display:flex;gap:1rem;background:var(--card);border:1px solid var(--cardb);border-radius:var(--r12);padding:1.2rem 1.3rem;transition:border-color .25s,transform .2s}
+.pf:hover{border-color:var(--tealb);transform:translateX(4px)}
+.pf-ic{width:42px;height:42px;flex-shrink:0;border-radius:10px;background:var(--teal3);border:1px solid var(--tealb);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.2rem}
+.pf h4{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+.pf p{color:var(--w70);font-size:.83rem;line-height:1.65}
+
+.api-mock{background:#0a1426;border:1px solid var(--cardb);border-radius:var(--r16);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);position:sticky;top:86px}
+.api-top{display:flex;align-items:center;gap:7px;padding:.7rem 1rem;background:rgba(255,255,255,.03);border-bottom:1px solid var(--w08)}
+.api-dot{width:11px;height:11px;border-radius:50%}
+.api-file{margin-left:.6rem;font-family:monospace;font-size:.74rem;color:var(--w50)}
+.api-body{padding:1.3rem;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.78rem;line-height:1.85;color:var(--w90);white-space:pre-wrap;word-break:break-word}
+.c-com{color:var(--w40,rgba(255,255,255,.4))}
+.c-key{color:#1ECFD5}
+.c-str{color:#9be7a8}
+.c-prop{color:#7fb4ff}
+.c-ok{color:var(--teal);font-weight:700}
+
+.prod-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem;text-align:center}
+.ps{background:var(--card);border:1px solid var(--cardb);border-radius:var(--r16);padding:1.8rem 1.2rem}
+.ps-num{font-family:var(--fd);font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--teal),#1ECFD5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ps-lbl{color:var(--w50);font-size:.82rem;margin-top:.5rem;line-height:1.5}
+
+.prod-cta{text-align:center;margin-top:3.5rem}
+.prod-cta p{color:var(--w70);font-size:1rem;margin-bottom:1.4rem}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-right{display:none}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .founder-grid{grid-template-columns:1fr}
+  .journey-wrap{grid-template-columns:1fr}
+  .ceo-card{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:1fr}
+  .api-mock{position:static}
+  .prod-flow{grid-template-columns:1fr}
+  .flow-arrow{transform:rotate(90deg)}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .svc-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .cta-inner{padding:2.5rem 1.5rem}
+  .prod-stats{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .proc-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SHARED BRAND SVG DEFS (almond mark) ══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#3FE3DA"></stop>
+      <stop offset="1" stop-color="#159B95"></stop>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="1" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#3DEAF0"></stop>
+      <stop offset="1" stop-color="#129BBA"></stop>
+    </linearGradient>
+    <symbol id="almondMark" viewBox="0 0 120 140">
+      <path d="M5 70 L38 18 L60 38 L40 70 L60 102 L38 122 Z" fill="url(#tealGrad)"></path>
+      <path d="M115 70 L82 18 L60 38 L80 70 L60 102 L82 122 Z" fill="url(#cyanGrad)"></path>
+      <g style="opacity:.85">
+        <path d="M5 70 L38 18 L60 38 L40 70 Z" fill="#FFFFFF" fill-opacity="0.18"></path>
+        <path d="M115 70 L82 18 L60 38 L80 70 Z" fill="#FFFFFF" fill-opacity="0.20"></path>
+        <path d="M5 70 L40 70 L60 102 L38 122 Z" fill="#04241F" fill-opacity="0.16"></path>
+        <path d="M115 70 L80 70 L60 102 L82 122 Z" fill="#04241F" fill-opacity="0.16"></path>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+  <div class="pl-stage">
+    <svg class="pl-ring" width="150" height="150" viewBox="0 0 150 150">
+      <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(31,200,210,.16)" stroke-width="2"></circle>
+      <circle cx="75" cy="75" r="64" fill="none" stroke="#1FCFD5" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="44 358"></circle>
+    </svg>
+    <svg class="pl-mark" width="78" height="92" viewBox="0 0 120 140" style="animation:almGlowPulse 2.4s ease-in-out infinite">
+      <path class="pl-left" d="M5 70 L38 18 L60 38 L40 70 L60 102 L38 122 Z" fill="url(#tealGrad)"></path>
+      <path class="pl-right" d="M115 70 L82 18 L60 38 L80 70 L60 102 L82 122 Z" fill="url(#cyanGrad)"></path>
+    </svg>
+  </div>
+  <div class="pl-wordmark"><span>alm</span><svg width="19" height="22"><use href="#almondMark"></use></svg><span>nd</span></div>
+  <div class="pl-text">Almond Systems</div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo brand-lock" aria-label="Almond Systems">
+    <span class="bl-word">alm</span><svg class="bl-mark" width="23" height="27"><use href="#almondMark"></use></svg><span class="bl-word">nd</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#product">Product</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-wa" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20get%20a%20quote" target="_blank" rel="noopener">
+      <i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp
+    </a>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mmenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#product" onclick="closeMenu()">Product</a>
+  <a href="#founder" onclick="closeMenu()">Founder</a>
+  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a href="#process" onclick="closeMenu()">Process</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="https://wa.me/2349168775034" target="_blank" rel="noopener" style="color:#25d366;font-weight:700">
+    <i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp
+  </a>
+</div>
+
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-canvas"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        CAC Registered · BN 2180265
+      </div>
+      <h1>
+        Engineering<br>
+        <span class="line2">Africa's Digital</span><br>
+        Infrastructure
+      </h1>
+      <p class="hero-sub">From fintech payment platforms and DevOps pipelines to full eCommerce builds and enterprise APIs — Almond Systems delivers backend systems that scale, perform, and last in Nigeria's demanding production environments.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#services">
+          <i class="ti ti-rocket"></i> Explore Services
+        </a>
+        <a class="btn-wa" href="https://wa.me/2349168775034?text=Hi%2C%20I%27d%20like%20a%20quote" target="_blank" rel="noopener">
+          <i class="ti ti-brand-whatsapp"></i> Get a Quote
+        </a>
+        <a class="btn-ghost" href="#portfolio">
+          <i class="ti ti-layout-grid"></i> See Live Products
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="true">
+      <!-- Floating card 1: uptime -->
+      <div class="hero-card hc1">
+        <div class="hc-label"><i class="ti ti-activity"></i> Platform Uptime</div>
+        <div class="hc-val">99.9%</div>
+        <div class="hc-sub">Production SLA · GCP + Azure</div>
+        <div class="hc-bar"><div class="hc-bar-fill" style="--w:99.9%"></div></div>
+        <div class="hc-dots">
+          <div class="hc-dot on"></div><div class="hc-dot on"></div><div class="hc-dot on"></div>
+          <div class="hc-dot on"></div><div class="hc-dot" style="opacity:.12"></div>
+        </div>
+      </div>
+      <!-- Floating card 2: stack -->
+      <div class="hero-card hc2">
+        <div class="hc-label"><i class="ti ti-code"></i> Core Stack</div>
+        <div class="hc-stack">
+          <div class="hc-row"><span>Python · FastAPI</span><span class="val">✓</span></div>
+          <div class="hc-row"><span>Node.js · NestJS</span><span class="val">✓</span></div>
+          <div class="hc-row"><span>Kafka · Redis</span><span class="val">✓</span></div>
+          <div class="hc-row"><span>Docker · CI/CD</span><span class="val">✓</span></div>
+        </div>
+      </div>
+      <!-- Floating card 3: years -->
+      <div class="hero-card hc3">
+        <div class="hc-label"><i class="ti ti-calendar"></i> Experience</div>
+        <div class="hc-val">13+</div>
+        <div class="hc-sub">Years in Production</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="reveal"><div class="stat-num">13+</div><div class="stat-label">Years Engineering</div></div>
+    <div class="reveal d1"><div class="stat-num">5</div><div class="stat-label">Live Products</div></div>
+    <div class="reveal d2"><div class="stat-num">99.9%</div><div class="stat-label">Uptime SLA</div></div>
+    <div class="reveal d3"><div class="stat-num">50+</div><div class="stat-label">Enterprise Integrations</div></div>
+  </div>
+</div>
+
+
+<!-- ══ FOUNDER SPLIT: video + live products ══ -->
+<section class="founder-split">
+  <div class="founder-grid">
+    <div class="reveal">
+      <div class="f-label"><i class="ti ti-movie"></i> Founder's Early Vision</div>
+      <h2>The Speech That<br>Started It All</h2>
+      <p>Watch Kpono-Abasi Akpabio's early founding speech — the declaration of the technology mission that eventually became Almond Systems. Raw vision; now live products.</p>
+      <div class="video-wrap" style="margin-top:1.4rem">
+        <video controls poster="assets/images/tams_platform.jpg">
+          <source src="assets/video/founder_speech.mp4" type="video/mp4">
+        </video>
+        <span class="v-tag"><i class="ti ti-player-play"></i> Founder's Speech</span>
+      </div>
+    </div>
+
+    <div class="reveal d1">
+      <div class="f-label"><i class="ti ti-trending-up"></i> Where We Are Now</div>
+      <h2>5 Live Platforms —<br>Built & Running in Production</h2>
+      <p>That founding vision is now shipping code. Five active products across eCommerce, logistics, wellness, services, and culture — all engineered, hosted, and maintained by Almond Systems.</p>
+      <div class="live-list">
+        <a class="live-item" href="https://buysmartng.com" target="_blank" rel="noopener">
+          <div class="li-icon"><i class="ti ti-shopping-bag"></i></div>
+          <div class="li-text"><strong>BuySmart Nigeria</strong><span>buysmartng.com · eCommerce Platform</span></div>
+          <i class="ti ti-arrow-up-right li-arr"></i>
+        </a>
+        <a class="live-item" href="https://ibomservices.com" target="_blank" rel="noopener">
+          <div class="li-icon"><i class="ti ti-map-pin"></i></div>
+          <div class="li-text"><strong>Ibom Services</strong><span>ibomservices.com · Service Marketplace</span></div>
+          <i class="ti ti-arrow-up-right li-arr"></i>
+        </a>
+        <a class="live-item" href="https://graceswellnessgardens.com" target="_blank" rel="noopener">
+          <div class="li-icon"><i class="ti ti-leaf"></i></div>
+          <div class="li-text"><strong>Graces Wellness Gardens</strong><span>graceswellnessgardens.com · Wellness</span></div>
+          <i class="ti ti-arrow-up-right li-arr"></i>
+        </a>
+        <a class="live-item" href="https://luluculturefoundation.org" target="_blank" rel="noopener">
+          <div class="li-icon"><i class="ti ti-heart-handshake"></i></div>
+          <div class="li-text"><strong>Lulu Culture Foundation</strong><span>luluculturefoundation.org · Non-Profit</span></div>
+          <i class="ti ti-arrow-up-right li-arr"></i>
+        </a>
+        <a class="live-item" href="https://trafficwarehouse.com.ng" target="_blank" rel="noopener">
+          <div class="li-icon"><i class="ti ti-truck-delivery"></i></div>
+          <div class="li-text"><strong>Traffic Warehouse</strong><span>trafficwarehouse.com.ng · Logistics</span></div>
+          <i class="ti ti-arrow-up-right li-arr"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SERVICES ══ -->
+<section class="section" id="services">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-tag"><i class="ti ti-code"></i> What We Build</div>
+      <h2 class="sec-title">Premium Digital Services<br>for Ambitious Teams</h2>
+      <p class="sec-sub">Every service is battle-tested in real Nigerian production environments — from the country's largest eCommerce platform to government payroll systems and national banking infrastructure.</p>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc reveal">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-server-cog"></i></div>
+        <h3>DevOps & CI/CD Engineering</h3>
+        <p>Production-grade CI/CD pipelines with Docker, GitHub Actions, and GCP. We define DORA metrics, on-call runbooks, and alerting from day one — not as an afterthought.</p>
+        <div class="svc-tags"><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">GCP</span><span class="tag">Kubernetes</span><span class="tag">Prometheus</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=DevOps%20audit%20enquiry" target="_blank" rel="noopener">Get a DevOps audit <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <div class="svc reveal d1">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-cloud-upload"></i></div>
+        <h3>Cloud Hosting & Infrastructure</h3>
+        <p>Managed cloud deployment on Google Cloud and Azure — provisioning, autoscaling, monitoring, incident response, and 99.9% uptime SLAs. You ship; we keep it alive.</p>
+        <div class="svc-tags"><span class="tag">GCP</span><span class="tag">Azure</span><span class="tag">Nginx</span><span class="tag">Grafana</span><span class="tag">ELK Stack</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=Cloud%20hosting%20enquiry" target="_blank" rel="noopener">Host with us <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <div class="svc reveal d2">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-layout-dashboard"></i></div>
+        <h3>Web Design & eCommerce Dev</h3>
+        <p>Premium web experiences built to convert. Led backend for Yudala (now Konga.com) — Nigeria's largest eCommerce platform — handling millions in flash-sale transactions via Magento and Node.js microservices.</p>
+        <div class="svc-tags"><span class="tag">Magento 2</span><span class="tag">WooCommerce</span><span class="tag">Shopify</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=Web%20design%20enquiry" target="_blank" rel="noopener">Start your build <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-api"></i></div>
+        <h3>Custom Backend & API Solutions</h3>
+        <p>Microservices, REST & GraphQL APIs, event-driven systems with Kafka and Redis — engineered for the throughput and latency your business demands. We write RFCs and ADRs, not just code.</p>
+        <div class="svc-tags"><span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">FastAPI</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=Custom%20backend%20enquiry" target="_blank" rel="noopener">Build something custom <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <div class="svc reveal d1">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-credit-card"></i></div>
+        <h3>Fintech & Payment Integration</h3>
+        <p>PCI-DSS compliant integration across Interswitch, Flutterwave, Paystack, GTPay, and Netplus — with escrow systems, OTP/token auth, audit trails, and financial reconciliation from day one.</p>
+        <div class="svc-tags"><span class="tag">Interswitch</span><span class="tag">Flutterwave</span><span class="tag">Paystack</span><span class="tag">GTPay</span><span class="tag">PCI-DSS</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=Payment%20integration%20enquiry" target="_blank" rel="noopener">Integrate payments <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <div class="svc reveal d2">
+        <div class="svc-glow"></div>
+        <div class="svc-icon"><i class="ti ti-terminal-2"></i></div>
+        <h3>Automation Scripts & ERP Tooling</h3>
+        <p>Internal SDKs, automation scripts, Odoo ERP customisation, and shared libraries. From Osun State government payroll modules to FIRS auto-deduct scripts for Splynx and SAGE — we automate the right things.</p>
+        <div class="svc-tags"><span class="tag">Python</span><span class="tag">Odoo</span><span class="tag">Bash</span><span class="tag">SAGE</span><span class="tag">Webhooks</span></div>
+        <a class="svc-cta" href="https://wa.me/2349168775034?text=Automation%20enquiry" target="_blank" rel="noopener">Automate your workflow <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FLAGSHIP PRODUCT: AlmondPay ══ -->
+<section class="section product" id="product">
+  <div class="prod-bg"></div>
+  <div class="sec-inner" style="position:relative;z-index:1">
+    <div class="prod-head reveal">
+      <div class="sec-tag" style="justify-content:center"><i class="ti ti-shield-lock"></i> Flagship Product · In Development</div>
+      <h2 class="sec-title" style="text-align:center">AlmondPay</h2>
+      <p class="prod-tagline">The escrow-secured payments &amp; checkout API for African social commerce.</p>
+      <p class="sec-sub" style="margin:1rem auto 0;text-align:center">Nigerians lose billions every year to "pay first" fraud on Instagram, WhatsApp and marketplace selling. AlmondPay holds the buyer's money in regulated escrow and releases it to the seller only on delivery — turning every chat into a trusted checkout.</p>
+    </div>
+
+    <!-- problem → solution band -->
+    <div class="prod-flow reveal d1">
+      <div class="flow-card flow-problem">
+        <div class="flow-badge"><i class="ti ti-alert-triangle"></i> The Problem</div>
+        <ul class="flow-list">
+          <li><i class="ti ti-x"></i> Buyers pay upfront and never receive goods</li>
+          <li><i class="ti ti-x"></i> Sellers ship and get charged back or ghosted</li>
+          <li><i class="ti ti-x"></i> Social sellers have no trusted checkout — just an account number in DMs</li>
+        </ul>
+      </div>
+      <div class="flow-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="flow-card flow-solution">
+        <div class="flow-badge solved"><i class="ti ti-shield-check"></i> AlmondPay</div>
+        <ul class="flow-list">
+          <li><i class="ti ti-check"></i> One link or virtual account locks funds in escrow</li>
+          <li><i class="ti ti-check"></i> Funds release on delivery confirmation or auto-timeout</li>
+          <li><i class="ti ti-check"></i> Disputes resolved with a full, auditable money trail</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- feature grid + API mock -->
+    <div class="prod-grid">
+      <div class="prod-features">
+        <div class="pf reveal">
+          <div class="pf-ic"><i class="ti ti-lock-square-rounded"></i></div>
+          <div><h4>Escrow Hold &amp; Release</h4><p>Funds sit in a regulated trust account until both sides are satisfied — hold, release, refund or split with one API call.</p></div>
+        </div>
+        <div class="pf reveal d1">
+          <div class="pf-ic"><i class="ti ti-brand-whatsapp"></i></div>
+          <div><h4>WhatsApp &amp; Link Checkout</h4><p>Generate a secure pay-link or virtual account a seller can drop in any chat — no website required.</p></div>
+        </div>
+        <div class="pf reveal d2">
+          <div class="pf-ic"><i class="ti ti-arrows-split"></i></div>
+          <div><h4>Multi-Gateway Orchestration</h4><p>Paystack, Flutterwave, Interswitch and bank transfers behind one endpoint, with automatic failover and split payouts.</p></div>
+        </div>
+        <div class="pf reveal">
+          <div class="pf-ic"><i class="ti ti-receipt-2"></i></div>
+          <div><h4>Reconciliation &amp; Audit Trail</h4><p>PCI-DSS-grade logging, settlement reports and webhooks built for compliance from day one.</p></div>
+        </div>
+      </div>
+
+      <!-- API mock -->
+      <div class="api-mock reveal d1">
+        <div class="api-top">
+          <span class="api-dot" style="background:#ff5f57"></span>
+          <span class="api-dot" style="background:#febc2e"></span>
+          <span class="api-dot" style="background:#28c840"></span>
+          <span class="api-file">create_escrow.sh</span>
+        </div>
+        <pre class="api-body"><span class="c-com"># Lock a buyer's payment in escrow</span>
+<span class="c-key">curl</span> -X POST https://api.almondpay.ng/v1/escrow \
+  -H <span class="c-str">"Authorization: Bearer sk_live_•••"</span> \
+  -d <span class="c-str">'{
+    "amount": 75000,
+    "currency": "NGN",
+    "buyer": "buyer@mail.com",
+    "seller": "shop_2180265",
+    "release_on": "delivery"
+  }'</span>
+
+<span class="c-com"># → funds held · seller paid on delivery</span>
+{
+  <span class="c-prop">"status"</span>: <span class="c-ok">"held_in_escrow"</span>,
+  <span class="c-prop">"checkout_url"</span>: <span class="c-str">"pay.almondpay.ng/e/9Xk2"</span>,
+  <span class="c-prop">"protected"</span>: <span class="c-key">true</span>
+}</pre>
+      </div>
+    </div>
+
+    <!-- market stats -->
+    <div class="prod-stats reveal">
+      <div class="ps"><div class="ps-num">₦8.2tn</div><div class="ps-lbl">Nigerian e-commerce GMV, fragmented &amp; trust-starved</div></div>
+      <div class="ps"><div class="ps-num">90M+</div><div class="ps-lbl">Social-commerce buyers across Nigeria &amp; West Africa</div></div>
+      <div class="ps"><div class="ps-num">#1</div><div class="ps-lbl">Reason carts are abandoned: fear of being scammed</div></div>
+    </div>
+
+    <div class="prod-cta reveal">
+      <p>Want early access to the AlmondPay API — or to white-label escrow into your own platform?</p>
+      <div class="cta-btns" style="justify-content:center">
+        <a class="btn-primary" href="https://wa.me/2349168775034?text=I%27d%20like%20early%20access%20to%20AlmondPay" target="_blank" rel="noopener"><i class="ti ti-shield-lock"></i> Request Early Access</a>
+        <a class="btn-ghost" href="mailto:kingkpono@gmail.com?subject=AlmondPay%20API"><i class="ti ti-mail"></i> Talk to the Builder</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOUNDER JOURNEY ══ -->
+<section class="section journey" id="founder">
+  <div class="sec-inner">
+    <div class="reveal" style="margin-bottom:1rem">
+      <div class="sec-tag"><i class="ti ti-user-circle"></i> The Founder</div>
+      <h2 class="sec-title">13+ Years of Production Experience<br>Before Almond Systems Was Born</h2>
+      <p class="sec-sub">The depth you get from Almond Systems comes from a founder who spent over a decade inside Nigeria's most demanding technology environments — as individual contributor, team lead, and architect.</p>
+    </div>
+
+    <div class="journey-wrap" style="margin-top:3rem">
+      <!-- CEO Card -->
+      <div class="reveal">
+        <div class="ceo-card">
+          <img src="assets/images/mtn_wozniak.jpg" alt="Kpono-Abasi Akpabio at MTN Leadership Seminar">
+          <div class="ceo-info">
+            <h3>Kpono-Abasi Akpabio</h3>
+            <div class="ceo-role">Founder & CEO · OCJP Certified</div>
+            <div class="ceo-badges">
+              <span class="cbadge">13+ Yrs</span>
+              <span class="cbadge">Oracle OCJP</span>
+              <span class="cbadge">B.Sc. CS</span>
+              <span class="cbadge">MTN Leadership</span>
+            </div>
+            <div class="ceo-socials">
+              <a class="soc" href="https://www.linkedin.com/in/kpono-abasi-akpabio-86549b34" target="_blank" rel="noopener" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+              <a class="soc" href="https://github.com/kingkpono" target="_blank" rel="noopener" title="GitHub"><i class="ti ti-brand-github"></i></a>
+              <a class="soc" href="mailto:kingkpono@gmail.com" title="Email"><i class="ti ti-mail"></i></a>
+              <a class="soc" href="https://wa.me/2349168775034" target="_blank" rel="noopener" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline — no descriptions, tags only -->
+      <div class="founder-bio reveal d1">
+        <h2>The Career Behind the Company</h2>
+        <p>Before founding Almond Systems, Kpono-Abasi built internet banking systems, ran eCommerce at national scale on Konga.com, engineered identity software for Chams PLC, and attended the MTN Leadership Seminar with Apple co-founder Steve Wozniak. Every milestone below is personal career experience — the raw material powering Almond Systems today.</p>
+
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-year">2025 – Present</div>
+            <div class="tl-co">Almond Systems — Uyo, Akwa Ibom</div>
+            <div class="tl-role">Founder & CEO / Fullstack Engineer</div>
+            <div class="tl-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-co">Zendwave</div>
+            <div class="tl-role">Backend Engineer</div>
+            <div class="tl-tags"><span class="tag">Flask</span><span class="tag">MongoDB</span><span class="tag">WebSockets</span><span class="tag">Swagger</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2023 – 2024</div>
+            <div class="tl-co">MTN Nigeria (eShop) — Project</div>
+            <div class="tl-role">Magento 2 Backend Engineer</div>
+            <div class="tl-tags"><span class="tag">Magento 2</span><span class="tag">GraphQL</span><span class="tag">PHP</span><span class="tag">Next Gen</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2023</div>
+            <div class="tl-co">VDT Communications</div>
+            <div class="tl-role">Team Lead, IT Solutions</div>
+            <div class="tl-tags"><span class="tag">ISO 9001</span><span class="tag">SAGE</span><span class="tag">Splynx</span><span class="tag">Alepo</span><span class="tag">DevOps</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2022 – 2023</div>
+            <div class="tl-co">Payviame & Entermarket</div>
+            <div class="tl-role">Solution Architect</div>
+            <div class="tl-tags"><span class="tag">GCP</span><span class="tag">Interswitch</span><span class="tag">Flutterwave</span><span class="tag">PCI-DSS</span><span class="tag">RFC/ADR</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2018 – 2022</div>
+            <div class="tl-co">Chamsmobile Ltd. (Chams PLC)</div>
+            <div class="tl-role">Python / Odoo ERP Senior Engineer</div>
+            <div class="tl-tags"><span class="tag">Odoo</span><span class="tag">Laravel</span><span class="tag">Identity Mgmt</span><span class="tag">Payroll</span><span class="tag">RBAC</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2015 – 2017</div>
+            <div class="tl-co">Yudala Limited (now Konga.com) — Lagos</div>
+            <div class="tl-role">Web Developer / eCommerce Engineer</div>
+            <div class="tl-tags"><span class="tag">Magento</span><span class="tag">PHP</span><span class="tag">Node.js</span><span class="tag">GTPay</span><span class="tag">Netplus</span><span class="tag">REST API</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2013 – 2015</div>
+            <div class="tl-co">SB Telecoms</div>
+            <div class="tl-role">Software Engineer</div>
+            <div class="tl-tags"><span class="tag">Telecoms</span><span class="tag">OEM Apps</span><span class="tag">Java</span><span class="tag">API</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2011 – 2013</div>
+            <div class="tl-co">Integrated Software Services Ltd. (ISSL) — Surulere</div>
+            <div class="tl-role">Backend Engineer</div>
+            <div class="tl-tags"><span class="tag">Java</span><span class="tag">Internet Banking</span><span class="tag">OTP/Token</span><span class="tag">Fintech</span></div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-year">2008 – 2009</div>
+            <div class="tl-co">Delic Solutions — Enugu (NYSC)</div>
+            <div class="tl-role">Software Engineer (National Youth Service Corps)</div>
+            <div class="tl-tags"><span class="tag">NYSC</span><span class="tag">Web Dev</span><span class="tag">Java</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CAREER PHOTO STRIP ══ -->
+<section class="strip-section">
+  <div class="strip-header">
+    <div class="sec-tag reveal"><i class="ti ti-camera"></i> Career in Photos — Personal Journey</div>
+    <p class="reveal" style="color:var(--w50);font-size:.87rem">Real moments from the founder's engineering career — the experience behind Almond Systems.</p>
+  </div>
+  <div class="strip-track" id="stripTrack">
+    <!-- Set 1 -->
+    <div class="strip-photo">
+      <img src="assets/images/delic_nysc.jpg" alt="Delic Solutions Enugu NYSC">
+      <div class="strip-photo-cap"><h4>Delic Solutions — Enugu</h4><p>NYSC · 2008–2009 · First engineering role</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/sterling_bank.jpg" alt="Sterling Bank Internet Banking 2013">
+      <div class="strip-photo-cap"><h4>Sterling Bank Internet Banking</h4><p>ISSL Surulere · OTP/Token Auth · 2013</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/oem_telco.jpg" alt="TECNO App Challenge & OEM Telco">
+      <div class="strip-photo-cap"><h4>TECNO App Challenge · OEM & Telco</h4><p>Pre-installed apps · Mobile software dev</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/yudala_konga.jpg" alt="Yudala now Konga eCommerce">
+      <div class="strip-photo-cap"><h4>Yudala (now Konga.com) — Lagos</h4><p>Nigeria's largest eCommerce · 2015–2017</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/chams_identity.jpg" alt="Chams PLC Identity Management">
+      <div class="strip-photo-cap"><h4>Chams PLC — Identity Management</h4><p>Odoo ERP · Employee Self Service · 2018–2022</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/solution_architecture.jpg" alt="Solution Architecture session">
+      <div class="strip-photo-cap"><h4>Solution Architecture & Design</h4><p>Complex system whiteboarding · Personal career</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/mtn_wozniak.jpg" alt="MTN Leadership Seminar Steve Wozniak">
+      <div class="strip-photo-cap"><h4>MTN Leadership Seminar</h4><p>With Steve Wozniak, Co-founder Apple</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/tams_platform.jpg" alt="TAMS platform Almond Systems">
+      <div class="strip-photo-cap"><h4>TAMS Platform — Almond Systems</h4><p>Live system delivery · 2025</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/training.jpg" alt="Technology training Nigeria">
+      <div class="strip-photo-cap"><h4>Tech Training & Knowledge Transfer</h4><p>Empowering Nigeria's next engineers</p></div>
+    </div>
+    <!-- Set 2 — duplicate for seamless loop -->
+    <div class="strip-photo">
+      <img src="assets/images/delic_nysc.jpg" alt="Delic Solutions Enugu NYSC">
+      <div class="strip-photo-cap"><h4>Delic Solutions — Enugu</h4><p>NYSC · 2008–2009 · First engineering role</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/sterling_bank.jpg" alt="Sterling Bank Internet Banking">
+      <div class="strip-photo-cap"><h4>Sterling Bank Internet Banking</h4><p>ISSL Surulere · OTP/Token Auth · 2013</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/oem_telco.jpg" alt="TECNO App Challenge">
+      <div class="strip-photo-cap"><h4>TECNO App Challenge · OEM & Telco</h4><p>Pre-installed apps · Mobile software dev</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/yudala_konga.jpg" alt="Yudala now Konga">
+      <div class="strip-photo-cap"><h4>Yudala (now Konga.com) — Lagos</h4><p>Nigeria's largest eCommerce · 2015–2017</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/chams_identity.jpg" alt="Chams PLC">
+      <div class="strip-photo-cap"><h4>Chams PLC — Identity Management</h4><p>Odoo ERP · Employee Self Service · 2018–2022</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/solution_architecture.jpg" alt="Solution Architecture">
+      <div class="strip-photo-cap"><h4>Solution Architecture & Design</h4><p>Complex system whiteboarding</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/mtn_wozniak.jpg" alt="MTN Wozniak">
+      <div class="strip-photo-cap"><h4>MTN Leadership Seminar</h4><p>With Steve Wozniak, Co-founder Apple</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/tams_platform.jpg" alt="TAMS platform">
+      <div class="strip-photo-cap"><h4>TAMS Platform — Almond Systems</h4><p>Live system delivery · 2025</p></div>
+    </div>
+    <div class="strip-photo">
+      <img src="assets/images/training.jpg" alt="Tech Training">
+      <div class="strip-photo-cap"><h4>Tech Training & Knowledge Transfer</h4><p>Empowering Nigeria's next engineers</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PORTFOLIO ══ -->
+<section class="section" id="portfolio">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-tag"><i class="ti ti-layout-grid"></i> Active Portfolio</div>
+      <h2 class="sec-title">5 Live Platforms — Built & Operated by Almond Systems</h2>
+      <p class="sec-sub">These are not case studies. They are running in production today — proof of what we build for you.</p>
+    </div>
+    <div class="port-grid">
+
+      <div class="port-card reveal">
+        <div class="port-thumb">
+          <i class="ti ti-shopping-bag"></i>
+          <span class="domain">buysmartng.com</span>
+        </div>
+        <div class="port-body">
+          <div class="port-status">● Live</div>
+          <h4>BuySmart Nigeria</h4>
+          <p>eCommerce with product catalog, payment integrations, and logistics workflows for Nigerian consumers.</p>
+          <a class="port-link" href="https://buysmartng.com" target="_blank" rel="noopener">Visit site <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div class="port-card reveal d1">
+        <div class="port-thumb">
+          <i class="ti ti-map-pin"></i>
+          <span class="domain">ibomservices.com</span>
+        </div>
+        <div class="port-body">
+          <div class="port-status">● Live</div>
+          <h4>Ibom Services</h4>
+          <p>Event-driven service marketplace connecting Akwa Ibom residents with verified local providers.</p>
+          <a class="port-link" href="https://ibomservices.com" target="_blank" rel="noopener">Visit site <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div class="port-card reveal d2">
+        <div class="port-thumb">
+          <i class="ti ti-leaf"></i>
+          <span class="domain">graceswellnessgardens.com</span>
+        </div>
+        <div class="port-body">
+          <div class="port-status">● Live</div>
+          <h4>Graces Wellness Gardens</h4>
+          <p>Wellness and lifestyle platform with bookings, content management, and curated health experiences.</p>
+          <a class="port-link" href="https://graceswellnessgardens.com" target="_blank" rel="noopener">Visit site <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div class="port-card reveal">
+        <div class="port-thumb">
+          <i class="ti ti-heart-handshake"></i>
+          <span class="domain">luluculturefoundation.org</span>
+        </div>
+        <div class="port-body">
+          <div class="port-status">● Live</div>
+          <h4>Lulu Culture Foundation</h4>
+          <p>Non-profit digital platform for cultural preservation and community empowerment across Nigeria.</p>
+          <a class="port-link" href="https://luluculturefoundation.org" target="_blank" rel="noopener">Visit site <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div class="port-card reveal d1">
+        <div class="port-thumb">
+          <i class="ti ti-truck-delivery"></i>
+          <span class="domain">trafficwarehouse.com.ng</span>
+        </div>
+        <div class="port-body">
+          <div class="port-status">● Live</div>
+          <h4>Traffic Warehouse</h4>
+          <p>Logistics and bulk freight platform with Invoice Plugin, Escrow Integration, and secure payment workflows.</p>
+          <a class="port-link" href="https://trafficwarehouse.com.ng" target="_blank" rel="noopener">Visit site <i class="ti ti-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROCESS ══ -->
+<section class="section" id="process" style="background:var(--navy2)">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-tag"><i class="ti ti-route"></i> How We Work</div>
+      <h2 class="sec-title">From Brief to Production in Four Phases</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step reveal">
+        <div class="proc-num">01</div>
+        <h4>Discover & Architect</h4>
+        <p>Map business goals and technical constraints. Produce an RFC or ADR before writing a single line of code.</p>
+      </div>
+      <div class="proc-step reveal d1">
+        <div class="proc-num">02</div>
+        <h4>Sprint & Deliver</h4>
+        <p>Agile/Scrum delivery with weekly demos. Working software — not slides — from day one.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="proc-num">03</div>
+        <h4>Deploy & Observe</h4>
+        <p>CI/CD to production with Prometheus, Grafana, structured logging, and on-call runbooks at launch.</p>
+      </div>
+      <div class="proc-step reveal d3">
+        <div class="proc-num">04</div>
+        <h4>Scale & Support</h4>
+        <p>Post-launch SLA management, performance tuning, and roadmap execution — we stay as your engineering partner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA ══ -->
+<div class="cta-wrap" id="contact" style="padding-top:6rem">
+  <div class="cta-inner reveal">
+    <div class="sec-tag" style="justify-content:center"><i class="ti ti-rocket"></i> Ready to Build?</div>
+    <h2>Let's Engineer Something<br>That Actually Scales</h2>
+    <p>DevOps overhaul, new API platform, full eCommerce build, or custom automation scripts — bring your hardest engineering problem. We bring 13+ years of Nigerian production experience.</p>
+    <div class="cta-btns">
+      <a class="btn-wa" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" style="font-size:.95rem;padding:.85rem 2rem">
+        <i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp
+      </a>
+      <a class="btn-ghost" href="mailto:kingkpono@gmail.com">
+        <i class="ti ti-mail"></i> kingkpono@gmail.com
+      </a>
+      <a class="btn-ghost" href="https://www.linkedin.com/in/kpono-abasi-akpabio-86549b34" target="_blank" rel="noopener">
+        <i class="ti ti-brand-linkedin"></i> LinkedIn
+      </a>
+    </div>
+    <p class="note">Almond Systems · Uyo, Akwa Ibom State, Nigeria · CAC BN 2180265 &nbsp;·&nbsp; +234 916 877 5034 &nbsp;·&nbsp; +234 802 549 9721</p>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-brand brand-lock sm">
+        <span class="bl-word">alm</span><svg class="bl-mark" width="19" height="22"><use href="#almondMark"></use></svg><span class="bl-word">nd</span>
+      </div>
+      <p class="f-desc">Premium backend engineering, DevOps, cloud hosting, web design, and custom software for Nigerian and African businesses.</p>
+      <p class="f-desc" style="margin-top:.7rem">CAC Registered: <span style="color:var(--teal)">BN 2180265</span> · Uyo, Akwa Ibom State</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#product" style="color:var(--teal)">AlmondPay (Escrow API)</a></li>
+        <li><a href="#services">DevOps & CI/CD</a></li>
+        <li><a href="#services">Cloud Hosting</a></li>
+        <li><a href="#services">Web Design & eCommerce</a></li>
+        <li><a href="#services">Backend APIs</a></li>
+        <li><a href="#services">Fintech Integration</a></li>
+        <li><a href="#services">Automation & ERP</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Portfolio</h5>
+      <ul>
+        <li><a href="https://buysmartng.com" target="_blank" rel="noopener">BuySmart Nigeria</a></li>
+        <li><a href="https://ibomservices.com" target="_blank" rel="noopener">Ibom Services</a></li>
+        <li><a href="https://graceswellnessgardens.com" target="_blank" rel="noopener">Graces Wellness</a></li>
+        <li><a href="https://luluculturefoundation.org" target="_blank" rel="noopener">Lulu Foundation</a></li>
+        <li><a href="https://trafficwarehouse.com.ng" target="_blank" rel="noopener">Traffic Warehouse</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://wa.me/2349168775034" target="_blank" rel="noopener">WhatsApp: +234 916 877 5034</a></li>
+        <li><a href="tel:+2348025499721">+234 802 549 9721</a></li>
+        <li><a href="mailto:kingkpono@gmail.com">kingkpono@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/kpono-abasi-akpabio-86549b34" target="_blank" rel="noopener">LinkedIn Profile</a></li>
+        <li><a href="https://github.com/kingkpono" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://bitbucket.org/almondsystems/workspace/repositories" target="_blank" rel="noopener">Bitbucket</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Almond Systems. All rights reserved.</span>
+    <span class="reg-pill">CAC BN 2180265 · Uyo, Akwa Ibom State, Nigeria</span>
+  </div>
+</footer>
+
+
+<script>
+/* preloader */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{ document.getElementById('preloader').classList.add('gone'); },1600);
+});
+
+/* nav scroll */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* hamburger */
+function toggleMenu(){
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('mmenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mmenu').classList.remove('open');
+}
+
+/* reveal on scroll */
+const obs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* strip: duplicate for seamless infinite scroll width */
+const track = document.getElementById('stripTrack');
+const totalW = track.scrollWidth / 2;
+track.style.setProperty('animation-duration', Math.round(totalW/35)+'s');
+</script>
+</body>
+</html>
