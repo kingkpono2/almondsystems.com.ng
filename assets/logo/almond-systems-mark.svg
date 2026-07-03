@@ -1,0 +1,9 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Almond Systems mark</title>
+  <desc id="desc">A minimal almond-shaped monogram for Almond Systems.</desc>
+  <rect width="160" height="160" rx="36" fill="#F7F3EA"/>
+  <path d="M80 22C106.7 42.9 122 64.2 122 86.1C122 117.5 102.9 138 80 138C57.1 138 38 117.5 38 86.1C38 64.2 53.3 42.9 80 22Z" fill="#111111"/>
+  <path d="M80 43C97.7 59 107.9 73.5 107.9 89.1C107.9 111.2 95.6 125.3 80 125.3C64.4 125.3 52.1 111.2 52.1 89.1C52.1 73.5 62.3 59 80 43Z" fill="#F7F3EA"/>
+  <path d="M67.6 102.8L78.8 57.5H87.2L98.4 102.8H88.9L87.1 93.5H78.5L76.7 102.8H67.6ZM80 86.1H85.6L82.8 71.2L80 86.1Z" fill="#111111"/>
+  <path d="M61 115.8C67.2 120.4 73.5 122.7 80 122.7C86.5 122.7 92.8 120.4 99 115.8" stroke="#2E7D5B" stroke-width="7" stroke-linecap="round"/>
+</svg>
