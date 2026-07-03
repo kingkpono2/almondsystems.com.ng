@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://almondsystems.com/</loc>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com/#product</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com/#services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com/#portfolio</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com/#founder</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://almondsystems.com/assets/products/smartplus.png</image:loc>
+      <image:title>SmartPlus JAMB WAEC NECO CBT Mobile APK</image:title>
+      <image:caption>SmartPlus CBT mobile APK for JAMB, WAEC and NECO preparatory study in Nigeria.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://almondsystems.com/assets/products/hydrationhq.png</image:loc>
+      <image:title>HydrationHQ Smart Water Platform</image:title>
+      <image:caption>HydrationHQ smart water platform with customer app, operator workflows and admin access.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://almondsystems.com/assets/screenshots/ibomservices.png</image:loc>
+      <image:title>Ibom Services Business Directory Website</image:title>
+      <image:caption>Live Nigerian business directory website designed and built by Almond Systems.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://almondsystems.com/assets/screenshots/buysmartng.png</image:loc>
+      <image:title>BuySmart Nigeria Marketplace Website</image:title>
+      <image:caption>Live Nigerian commerce marketplace website in the Almond Systems portfolio.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://almondsystems.com/assets/screenshots/trafficwarehouse.png</image:loc>
+      <image:title>Traffic Warehouse Nigeria Website</image:title>
+      <image:caption>Live traffic safety solutions website in the Almond Systems portfolio.</image:caption>
+    </image:image>
   </url>
 </urlset>
