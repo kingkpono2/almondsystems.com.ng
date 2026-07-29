@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
 
-Sitemap: https://almondsystems.com/sitemap.xml
+Sitemap: https://almondsystems.com.ng/sitemap.xml
