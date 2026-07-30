@@ -50,7 +50,7 @@
       "logo": "https://almondsystems.com.ng/assets/logo/almond-systems-mark.svg",
       "image": "https://almondsystems.com.ng/assets/logo/almond-logo-live.png",
       "description": "Almond Systems helps Nigerian businesses collect revenue, automate operations, and keep websites, servers, databases, payments and digital platforms running reliably.",
-      "email": "kingkpono@gmail.com",
+      "email": "admin@almondsystems.com.ng",
       "telephone": "+2349168775034",
       "priceRange": "$$",
       "founder": {
@@ -289,7 +289,7 @@
   --max:1180px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
 body{
   margin:0;
   font-family:Inter,Arial,sans-serif;
@@ -319,25 +319,27 @@ button,input,textarea{font:inherit}
   margin:0 auto;
 }
 .site-header{
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   right:0;
   z-index:60;
-  background:linear-gradient(180deg,rgba(7,15,30,.82) 0%,rgba(7,15,30,.44) 64%,rgba(7,15,30,0) 100%);
+  background:linear-gradient(180deg,rgba(10,18,38,.94) 0%,rgba(10,18,38,.8) 100%);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,.08);
-  box-shadow:none;
+  box-shadow:0 8px 24px rgba(7,15,30,.16);
 }
 .nav{
-  height:104px;
+  height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:1rem;
 }
-.brand{display:inline-flex;align-items:center;min-width:220px}
+.brand{display:inline-flex;align-items:center;min-width:0}
 .brand img{
-  height:66px;
+  height:46px;
   width:auto;
   filter:drop-shadow(0 12px 26px rgba(0,0,0,.34));
   transform-origin:left center;
@@ -451,7 +453,7 @@ button,input,textarea{font:inherit}
   background-repeat:no-repeat;
 }
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(39,203,209,.12),transparent 28%,rgba(255,255,255,.04));pointer-events:none}
-.hero-copy{position:relative;z-index:2;padding:210px 0 150px}
+.hero-copy{position:relative;z-index:2;padding:138px 0 86px}
 .kicker{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1.15rem;color:var(--teal-dark);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.13em}
 .hero .kicker{color:#8ff3f6;text-shadow:0 2px 14px rgba(0,0,0,.28);animation:heroTextIn .68s cubic-bezier(.2,.8,.2,1) both}
 .kicker::before{content:"";width:34px;height:2px;background:var(--navy);transform-origin:left center;animation:lineGrow .75s ease both}
@@ -462,8 +464,8 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 .lead{width:min(620px,100%);color:#38342d;font-size:clamp(1.05rem,1.8vw,1.38rem);line-height:1.55;margin-bottom:1.75rem;animation:fadeLift .72s cubic-bezier(.2,.8,.2,1) .16s both}
 .hero .lead{width:min(620px,100%);color:rgba(255,255,255,.9);font-size:clamp(1rem,1.45vw,1.15rem);text-shadow:0 3px 16px rgba(0,0,0,.3);animation:heroTextIn .78s cubic-bezier(.2,.8,.2,1) .18s both}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:0;animation:heroCtaIn .72s cubic-bezier(.2,.8,.2,1) .3s both}
-.hero .btn-primary{background:#f6b93b;border-color:#f6b93b;color:#17130b}
-.hero .btn-primary:hover{background:#ffd36a;border-color:#ffd36a;color:#17130b}
+.hero .btn-primary{background:var(--teal);border-color:var(--teal);color:#06231f}
+.hero .btn-primary:hover{background:#4fd8dd;border-color:#4fd8dd;color:#06231f}
 .hero .btn-light{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.58);color:#fff;backdrop-filter:blur(10px)}
 .hero .btn-light:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.82)}
 .trust-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;width:min(860px,100%);margin:0;border:0;background:#fff;box-shadow:0 22px 70px rgba(7,15,30,.18)}
@@ -474,7 +476,7 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 .proof-strip{position:relative;z-index:5;margin-top:-76px;padding:0 0 46px;background:transparent;border-bottom:1px solid var(--line)}
 .proof-strip .shell{display:flex;justify-content:flex-start}
 .section{
-  padding:96px 0;
+  padding:58px 0;
   border-bottom:1px solid var(--line);
 }
 .section-head{
@@ -719,7 +721,7 @@ details p{
   color:var(--muted);
 }
 .contact{
-  padding:96px 0 56px;
+  padding:58px 0 40px;
   background:
     radial-gradient(ellipse at 13% 12%,rgba(31,49,95,.98) 0%,rgba(31,49,95,.92) 17%,transparent 35%),
     linear-gradient(135deg,var(--navy) 0%,var(--navy) 24%,var(--navy-dark) 68%,var(--teal-dark) 100%);
@@ -834,10 +836,10 @@ details p{
   .reveal{opacity:1;transform:none}
 }
 @media (max-width:980px){
-  .site-header{background:linear-gradient(180deg,rgba(7,15,30,.86) 0%,rgba(7,15,30,.25) 100%)}
-  .nav{position:relative;width:min(var(--max),calc(100% - 32px));height:82px}
+  .site-header{background:linear-gradient(180deg,rgba(10,18,38,.95) 0%,rgba(10,18,38,.86) 100%)}
+  .nav{position:relative;width:min(var(--max),calc(100% - 32px));height:68px}
   .brand{min-width:0;flex:0 1 auto}
-  .brand img{height:54px;max-width:172px;object-fit:contain}
+  .brand img{height:40px;max-width:150px;object-fit:contain}
   .nav-actions{margin-left:auto}
   .nav-actions .btn{display:none}
   .nav-toggle{display:grid;place-items:center;flex:0 0 44px;z-index:81}
@@ -848,7 +850,7 @@ details p{
   .nav-dropdown{position:static;min-width:0;box-shadow:none;border:0;background:rgba(31,49,95,.05);padding:.28rem;margin:.1rem 0 .35rem;opacity:1;visibility:visible;transform:none;display:grid}
   .nav-dropdown a{min-height:34px;font-size:.8rem;padding:.48rem .78rem;color:#2d3545}
   .hero{min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;background-position:center top}
-  .hero-copy{order:1;width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:150px 0 118px}
+  .hero-copy{order:1;width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:112px 0 68px}
   .hero h1{font-size:clamp(2.35rem,7vw,3.25rem);line-height:1.02}
   .hero .lead{font-size:1.05rem;max-width:560px}
   .proof-strip{margin-top:-62px;padding-bottom:34px}
@@ -870,7 +872,7 @@ details p{
   .nav{width:calc(100% - 40px);height:72px;gap:.65rem}
   .brand img{height:44px;max-width:142px}
   .hero{min-height:620px;background-image:linear-gradient(90deg,rgba(6,14,28,.86) 0%,rgba(6,14,28,.68) 42%,rgba(6,14,28,.44) 100%),linear-gradient(180deg,rgba(6,14,28,.34) 0%,rgba(6,14,28,.12) 44%,rgba(6,14,28,.72) 100%),url("assets/images/almond-hero-operations.jpg?v=20260730b");background-position:center top}
-  .hero-copy{width:calc(100% - 40px);padding:124px 0 94px}
+  .hero-copy{width:calc(100% - 40px);padding:96px 0 56px}
   .hero h1{font-size:clamp(2rem,8vw,2.55rem);line-height:1.03;margin-bottom:.9rem}
   .hero .lead{font-size:.98rem;line-height:1.48;margin-bottom:1.25rem}
   .hero-actions{display:grid;grid-template-columns:1fr;gap:.62rem;width:min(330px,100%)}
@@ -878,7 +880,7 @@ details p{
   .proof-strip{margin-top:-54px;padding-bottom:28px}
   .trust-strip{width:100%;box-shadow:0 18px 48px rgba(7,15,30,.18)}
   .trust-strip div{min-height:auto;padding:.95rem 1rem}
-  .section{padding:68px 0}
+  .section{padding:42px 0}
   .backend-grid{grid-template-columns:1fr;gap:12px}
   .backend-card{padding:1rem;gap:.85rem}
   .backend-card h3{font-size:1.45rem;line-height:1.05}
@@ -890,7 +892,7 @@ details p{
   .footer-inner{flex-direction:column}
   .founder-photo{width:100%;max-width:340px;justify-self:start}
   .section h2{font-size:clamp(1.55rem,6vw,2rem);line-height:1.05}
-  .contact{padding:72px 0 44px}
+  .contact{padding:42px 0 30px}
   .contact-logo-badge{margin-bottom:1rem}
   .contact-logo-badge img{height:50px}
   .contact h2{font-size:clamp(1.6rem,6vw,2rem);line-height:1.05;max-width:100%;overflow-wrap:break-word}
@@ -912,7 +914,7 @@ details p{
 <header class="site-header">
   <nav class="nav shell" aria-label="Primary navigation">
     <a class="brand" href="#top" aria-label="Almond Systems home">
-      <img src="/assets/logo/almond-logo-live.png?v=20260717b" alt="Almond Systems">
+      <img src="/assets/logo/almond-logo-live.png?v=20260730c" alt="Almond Systems">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a class="is-active" href="#top">Home</a></li>
@@ -1302,7 +1304,7 @@ details p{
     <div class="shell contact-grid">
       <div class="reveal">
         <a class="contact-logo-badge" href="#top" aria-label="Almond Systems home">
-          <img src="/assets/logo/almond-logo-live.png?v=20260717b" alt="Almond Systems">
+          <img src="/assets/logo/almond-logo-live.png?v=20260730c" alt="Almond Systems">
         </a>
         <p class="eyebrow" style="color:rgba(255,255,255,.76)">Start</p>
         <h2>Bring one serious product problem.</h2>
