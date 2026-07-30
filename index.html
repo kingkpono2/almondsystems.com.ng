@@ -324,12 +324,20 @@ button,input,textarea{font:inherit}
   left:0;
   right:0;
   z-index:60;
-  background:linear-gradient(180deg,rgba(10,18,38,.94) 0%,rgba(10,18,38,.8) 100%);
+  /* At rest the header floats over the hero image; it solidifies on scroll. */
+  background:linear-gradient(180deg,rgba(7,15,30,.58) 0%,rgba(7,15,30,.26) 62%,rgba(7,15,30,0) 100%);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  box-shadow:none;
+  transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.site-header.is-scrolled{
+  background:linear-gradient(180deg,rgba(10,18,38,.96) 0%,rgba(10,18,38,.9) 100%);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  box-shadow:0 8px 24px rgba(7,15,30,.16);
+  border-bottom-color:rgba(255,255,255,.08);
+  box-shadow:0 8px 24px rgba(7,15,30,.18);
 }
+@media (prefers-reduced-motion:reduce){.site-header{transition:none}}
 .nav{
   height:78px;
   display:flex;
@@ -836,7 +844,7 @@ details p{
   .reveal{opacity:1;transform:none}
 }
 @media (max-width:980px){
-  .site-header{background:linear-gradient(180deg,rgba(10,18,38,.95) 0%,rgba(10,18,38,.86) 100%)}
+  .site-header{background:linear-gradient(180deg,rgba(7,15,30,.66) 0%,rgba(7,15,30,.32) 64%,rgba(7,15,30,0) 100%)}
   .nav{position:relative;width:min(var(--max),calc(100% - 32px));height:68px}
   .brand{min-width:0;flex:0 1 auto}
   .brand img{height:40px;max-width:150px;object-fit:contain}
@@ -1353,6 +1361,23 @@ const reveal = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 revealItems.forEach((item) => reveal.observe(item));
+
+// Header floats transparent over the hero, then solidifies once scrolled.
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  let ticking = false;
+  const syncHeader = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 48);
+    ticking = false;
+  };
+  syncHeader();
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(syncHeader);
+    }
+  }, { passive: true });
+}
 </script>
 </body>
 </html>
