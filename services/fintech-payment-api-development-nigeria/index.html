@@ -26,15 +26,128 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://almondsystems.com.ng/services/fintech-payment-api-development-nigeria/#service","name":"Fintech API, escrow payment and banking backend development","serviceType":"Fintech API, escrow payment and banking backend development","provider":{"@type":"Organization","name":"Almond Systems NG","url":"https://almondsystems.com.ng/"},"areaServed":[{"@type":"Country","name":"Nigeria"},{"@type":"Place","name":"Africa"},{"@type":"City","name":"Lagos"}],"description":"Build secure fintech APIs, escrow flows, banking backends, payment integrations and transaction systems for Nigeria and Africa.","keywords":"fintech API Nigeria, payment API Lagos, escrow payment system Nigeria, banking backend Africa, NestJS fintech development"},{"@type":"FAQPage","@id":"https://almondsystems.com.ng/services/fintech-payment-api-development-nigeria/#faq","mainEntity":[{"@type":"Question","name":"Can Almond Systems build payment APIs for Nigerian platforms?","acceptedAnswer":{"@type":"Answer","text":"Yes. The team designs backend payment flows, escrow logic, gateway integrations, transaction logs, webhooks and settlement-ready records."}},{"@type":"Question","name":"Do you work with Node.js and NestJS for fintech?","acceptedAnswer":{"@type":"Answer","text":"Yes. Almond FinBank Pro demonstrates Node.js/NestJS banking APIs with PostgreSQL, Redis, RabbitMQ, Swagger and operational modules."}}]}]}</script>
 <style>
 :root{--ink:#101827;--muted:#56606d;--line:#d9e2e2;--navy:#1f315f;--teal:#27cbd1;--paper:#f5f8f6;--white:#fff}*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}.top{background:linear-gradient(90deg,var(--navy),#101b36);color:#fff}.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo img{height:58px}.nav a{color:#fff;text-decoration:none;font-weight:800}.hero{padding:76px 0 64px;background:#fff}.kicker{text-transform:uppercase;letter-spacing:.12em;color:#0e8f98;font-size:.8rem;font-weight:900}.hero h1{font-size:clamp(2.2rem,6vw,5rem);line-height:.95;letter-spacing:0;margin:.4rem 0 1rem;max-width:960px}.lead{font-size:1.18rem;color:#2e3642;max-width:820px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:8px;padding:.8rem 1rem;text-decoration:none;font-weight:900;border:1px solid var(--ink)}.primary{background:var(--teal);color:#07111f}.light{background:#fff}.section{padding:58px 0;border-top:1px solid var(--line)}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px}h2{font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05;margin:0 0 14px}h3{font-size:1.25rem;margin:18px 0 8px}li{margin:8px 0}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:.25rem .65rem;font-weight:900;font-size:.8rem;background:#eef8f7}.footer{padding:32px 0;background:#101827;color:#fff}.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.links a{display:block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;text-decoration:none;font-weight:900}@media(max-width:760px){.grid,.links{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.hero{padding:48px 0}.logo img{height:52px}}
+
+
+
+
+.as-site-header{position:sticky;top:0;z-index:80;background:linear-gradient(90deg,#1f315f 0%,#101b36 100%);border-bottom:1px solid rgba(39,203,209,.22);box-shadow:0 12px 30px rgba(16,27,54,.16)}
+.as-nav{width:min(1180px,calc(100% - 40px));margin:0 auto;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.as-brand{display:inline-flex;align-items:center;min-width:176px;text-decoration:none}.as-brand img{height:56px;width:auto;display:block}.as-links{display:flex;align-items:center;gap:10px;list-style:none;margin:0;padding:0}.as-links a,.as-dropdown summary{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-radius:999px;color:rgba(255,255,255,.8);text-decoration:none;font-weight:800;font-size:.92rem;white-space:nowrap}.as-links a:hover,.as-dropdown summary:hover,.as-links a.is-active,.as-dropdown.is-active summary,.as-dropdown[open] summary{background:rgba(39,203,209,.15);color:#fff}.as-links a.is-active,.as-dropdown.is-active summary{box-shadow:inset 0 0 0 1px rgba(39,203,209,.3)}.as-dropdown{position:relative}.as-dropdown summary{cursor:pointer;list-style:none}.as-dropdown summary::-webkit-details-marker{display:none}.as-dropdown summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75}.as-dropdown[open] summary::after{transform:rotate(225deg) translate(-1px,-1px)}.as-dropdown-panel{position:absolute;top:calc(100% + 12px);left:0;min-width:220px;padding:8px;border:1px solid rgba(39,203,209,.22);border-radius:8px;background:#101b36;box-shadow:0 24px 52px rgba(0,0,0,.28);display:grid;gap:3px}.as-dropdown-panel.as-right{left:auto;right:0}.as-dropdown-panel a{justify-content:flex-start;width:100%;border-radius:6px}.as-dropdown-panel a.is-active{background:rgba(39,203,209,.2)}.as-actions{display:flex;align-items:center;gap:10px}.as-demo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;background:#27cbd1;color:#07111f!important;text-decoration:none;font-weight:900;white-space:nowrap}.as-toggle{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;font-weight:900}.as-footer{background:#101827;color:#fff;padding:6px 0}.as-footer-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap}.as-footer p{margin:0;color:rgba(255,255,255,.72);font-weight:400;font-size:.7rem;line-height:1.15;text-align:center}.as-footer a{color:#27cbd1;text-decoration:none;font-weight:850}.as-footer-links{display:flex;gap:14px;flex-wrap:wrap}@media(max-width:880px){.as-nav{min-height:70px}.as-brand img{height:48px}.as-toggle{display:inline-grid;place-items:center}.as-links{display:none;position:absolute;top:70px;left:20px;right:20px;background:#fff;border:1px solid #d9e2e2;border-radius:8px;padding:10px;box-shadow:0 20px 45px rgba(16,27,54,.18);align-items:stretch;flex-direction:column}.as-links.is-open{display:flex}.as-links a,.as-dropdown summary{color:#101827;justify-content:center;border-radius:6px}.as-links a.is-active,.as-dropdown.is-active summary{color:#101827;background:#dff8f7}.as-dropdown{width:100%}.as-dropdown-panel{position:static;min-width:0;margin-top:6px;background:#f5f8f6;border-color:#d9e2e2;box-shadow:none}.as-dropdown-panel a{justify-content:center;color:#101827}.as-actions .as-demo{display:none}.as-footer-inner{align-items:center;flex-direction:row}}
+
+.as-contact{background:linear-gradient(120deg,#1f315f 0%,#101b36 56%,#0e8f98 100%);color:#fff;padding:52px 0;border-top:1px solid rgba(39,203,209,.18)}
+.as-contact-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px}.as-contact-logo{display:inline-flex;align-items:center;margin:0 0 16px;text-decoration:none}.as-contact-logo img{height:56px;width:auto;display:block}.as-contact-kicker{margin:0 0 8px;color:rgba(255,255,255,.76);font-weight:900;letter-spacing:.16em;text-transform:uppercase}.as-contact h2{max-width:760px;margin:0 0 14px;font-size:clamp(2rem,5vw,4.1rem);line-height:1.02;letter-spacing:0;color:#fff}.as-contact p{max-width:760px;margin:0;color:rgba(255,255,255,.82);font-size:1.08rem;line-height:1.65}.as-contact-actions{display:grid;grid-template-columns:repeat(2,auto);gap:10px 12px;justify-content:flex-end;align-items:center}.as-contact-meta{grid-column:1/-1;display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;font-size:.84rem;line-height:1.35}.as-contact-meta a{color:rgba(255,255,255,.78);text-decoration:none;font-weight:500}.as-contact-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-weight:900;text-decoration:none;color:#fff}.as-contact-btn.primary{background:#fff;color:#0e8f98;border-color:#fff}@media(max-width:820px){.as-contact{padding:36px 0}.as-contact-inner{grid-template-columns:1fr}.as-contact-actions{justify-content:flex-start}.as-contact-meta{justify-content:flex-start;font-size:.82rem}}
+
+
+/* Mobile navigation icon and lighter footer text. */
+.as-toggle{font-size:0!important;line-height:0;position:relative}.as-toggle::before{content:"";width:18px;height:2px;background:currentColor;border-radius:99px;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor}.as-footer p{font-weight:400!important}.as-footer a{font-weight:500!important}.as-footer{padding:6px 0!important}
+
+/* 2026-07-30 final underline navigation style. */
+.as-links a,.as-dropdown summary{background-color:transparent!important;box-shadow:none!important;border-radius:0!important;position:relative}.as-links a:hover,.as-dropdown summary:hover,.as-links a.is-active,.as-dropdown.is-active summary,.as-dropdown[open] summary{background-color:transparent!important;box-shadow:none!important;color:#fff!important;background-image:linear-gradient(#27cbd1,#27cbd1)!important;background-repeat:no-repeat!important;background-size:calc(100% - 28px) 2px!important;background-position:center calc(100% - 3px)!important}.as-dropdown-panel a,.as-dropdown-panel a:hover,.as-dropdown-panel a.is-active{background-image:none!important;border-radius:6px!important}.as-dropdown-panel a.is-active{background-color:rgba(39,203,209,.16)!important}@media(max-width:880px){.as-links a,.as-dropdown summary{border-radius:6px!important}.as-links a:hover,.as-dropdown summary:hover,.as-links a.is-active,.as-dropdown.is-active summary{color:#101827!important;background-position:center calc(100% - 7px)!important}.as-dropdown-panel a.is-active{background-color:#dff8f7!important}}
+
+
+/* 2026-07-30 hard override: underline-only active navigation. */
+.as-links a,.as-dropdown summary{background:none!important;box-shadow:none!important;border-radius:0!important;position:relative}.as-links a:hover,.as-dropdown summary:hover,.as-links a.is-active,.as-dropdown.is-active summary,.as-dropdown[open] summary{background:none!important;box-shadow:none!important;color:#fff!important}.as-links a::after,.as-dropdown summary::after{content:""!important;position:absolute!important;left:14px!important;right:14px!important;bottom:3px!important;width:auto!important;height:2px!important;border:0!important;border-radius:99px!important;background:#27cbd1!important;transform:scaleX(0)!important;opacity:1!important;transition:transform .18s ease!important}.as-links a:hover::after,.as-dropdown summary:hover::after,.as-links a.is-active::after,.as-dropdown.is-active summary::after,.as-dropdown[open] summary::after{transform:scaleX(1)!important}.as-dropdown summary::before{content:"";position:absolute;right:5px;top:50%;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-60%) rotate(45deg);opacity:.72}.as-dropdown[open] summary::before{transform:translateY(-35%) rotate(225deg)}.as-dropdown-panel a::after{display:none!important}.as-dropdown-panel a,.as-dropdown-panel a:hover{border-radius:6px!important}.as-dropdown-panel a.is-active{background:rgba(39,203,209,.16)!important}@media(max-width:880px){.as-links a,.as-dropdown summary{border-radius:6px!important}.as-links a:hover,.as-dropdown summary:hover,.as-links a.is-active,.as-dropdown.is-active summary{color:#101827!important}.as-links a::after,.as-dropdown summary::after{bottom:7px!important}.as-dropdown-panel a.is-active{background:#dff8f7!important}}
+
+
+/* 2026-07-30 dropdown polish and single-menu behavior support. */
+.as-dropdown-panel{top:calc(100% + 14px)!important;min-width:210px!important;padding:10px!important;border-radius:8px!important;background:#101827!important;border:1px solid rgba(39,203,209,.26)!important;box-shadow:0 22px 50px rgba(0,0,0,.25)!important}.as-dropdown-panel a{min-height:42px!important;padding:0 12px!important;color:rgba(255,255,255,.86)!important;background:none!important;background-image:none!important}.as-dropdown-panel a:hover{background:rgba(39,203,209,.13)!important;color:#fff!important}.as-dropdown-panel a::after{display:none!important}.as-dropdown[open] .as-dropdown-panel{animation:asMenuDrop .16s ease-out both}@keyframes asMenuDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:880px){.as-dropdown-panel{background:#f5f8f6!important;border-color:#d9e2e2!important;box-shadow:none!important}.as-dropdown-panel a{color:#101827!important;justify-content:center!important}}
+
 </style>
 </head>
 <body>
-<header class="top"><nav class="wrap nav"><a class="logo" href="/"><img src="/assets/logo/almond-logo-live.png" alt="Almond Systems NG"></a><a href="/services/">Services</a><a href="/#products">Products</a><a href="/#contact">Contact</a></nav></header>
+<header class="as-site-header">
+  <nav class="as-nav" aria-label="Primary navigation">
+    <a class="as-brand" href="/" aria-label="Almond Systems home"><img src="/assets/logo/almond-logo-live.png?v=20260717b" alt="Almond Systems"></a>
+    <ul class="as-links" id="asNavLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#offers">Offers</a></li>
+      <li><details class="as-dropdown is-active"><summary>Products &amp; Services</summary><div class="as-dropdown-panel"><a href="/services/">Services</a><a href="/products/">Products</a><a href="/downloads/">Downloads</a></div></details></li>
+      <li><a href="/#backend-products">Proof</a></li>
+      <li><a href="/domains/">Domains</a></li>
+      <li><details class="as-dropdown"><summary>About</summary><div class="as-dropdown-panel as-right"><a href="/#capabilities">Capabilities</a><a href="/#founder">Founder</a><a href="/#faq">FAQ</a><a href="/#contact">Contact</a></div></details></li>
+    </ul>
+    <div class="as-actions"><a class="as-demo" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20book%20a%20demo" target="_blank" rel="noopener">Book demo</a><button class="as-toggle" id="asNavToggle" type="button" aria-label="Open navigation" aria-expanded="false"><span class="sr-only">Open navigation</span></button></div>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
 <main>
 <section class="hero"><div class="wrap"><p class="kicker">Almond Systems service page</p><h1>Fintech API, escrow payment and banking backend development in Nigeria</h1><p class="lead">For payment startups, marketplaces, wallets, lending tools, banking demos and regulated teams that need clear transaction flows, audit trails, reliable APIs and production-oriented backend architecture.</p><div class="actions"><a class="btn primary" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20discuss%20fintech-payment-api-development-nigeria" target="_blank" rel="noopener">Discuss this service</a><a class="btn light" href="/#portfolio">See live work</a></div></div></section>
 <section class="section"><div class="wrap grid"><article class="card"><span class="pill">Nigeria and Africa</span><h2>What this service covers</h2><ul><li>JWT authentication, account APIs, transaction workflows and audit logs.</li><li>Escrow, checkout, wallet, transfer and marketplace payment flow design.</li><li>Redis caching, RabbitMQ events, webhook security and email/SMS notification patterns.</li><li>PostgreSQL schema design, indexes, migrations and transaction integrity.</li></ul></article><aside class="card"><h2>Search intent served</h2><p>fintech API Nigeria, payment API Lagos, escrow payment system Nigeria, banking backend Africa, NestJS fintech development</p><h3>Why Almond Systems</h3><p>Almond Systems combines product design, backend engineering, cloud deployment, SEO structure and real deployed projects, so the service is positioned around delivery rather than brochure-only promises.</p></aside></div></section>
 <section class="section"><div class="wrap grid"><article class="card"><h2>FAQ</h2><h3>Can Almond Systems build payment APIs for Nigerian platforms?</h3><p>Yes. The team designs backend payment flows, escrow logic, gateway integrations, transaction logs, webhooks and settlement-ready records.</p><h3>Do you work with Node.js and NestJS for fintech?</h3><p>Yes. Almond FinBank Pro demonstrates Node.js/NestJS banking APIs with PostgreSQL, Redis, RabbitMQ, Swagger and operational modules.</p></article><aside class="card"><h2>Related services</h2><div class="links"><a href="/services/website-design-hosting-nigeria/">Website design, hosting and SEO search visibility</a><a href="/services/ai-software-development-africa/">AI-ready software development and automation</a><a href="/services/mobile-app-cbt-apk-development-nigeria/">Mobile app, Android APK and CBT application development</a><a href="/services/ecommerce-marketplace-development-nigeria/">Ecommerce marketplace and mobile commerce development</a><a href="/services/backend-api-cloud-devops-africa/">Backend API, cloud hosting and DevOps engineering</a><a href="/services/woocommerce-shipping-plugin-nigeria/">WooCommerce shipping-rate plugin and checkout automation</a></div></aside></div></section>
 </main>
-<footer class="footer"><div class="wrap"><p>Almond Systems NG. CAC BN 2180265. Uyo, Akwa Ibom State, Nigeria. Serving Lagos, Nigeria and Africa.</p><p><a href="mailto:kingkpono@gmail.com">kingkpono@gmail.com</a> | <a href="tel:+2349168775034">+234 916 877 5034</a></p></div></footer>
+<section class="as-contact" id="contact">
+  <div class="as-contact-inner">
+    <div>
+      <a class="as-contact-logo" href="/" aria-label="Almond Systems home"><img src="/assets/logo/almond-logo-live.png?v=20260717b" alt="Almond Systems"></a>
+      <p class="as-contact-kicker">Start</p>
+      <h2>Bring one serious product problem.</h2>
+      <p>Serving Lagos, Nigeria and Africa, we turn serious product problems into calmer interfaces, stronger backends, AI-ready systems, and launch paths clear enough to sell, support, and scale.</p>
+    </div>
+    <div class="as-contact-actions">
+      <a class="as-contact-btn primary" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="as-contact-btn" href="mailto:admin@almondsystems.com.ng?subject=Project%20conversation">Email</a>
+      <div class="as-contact-meta"><a href="mailto:admin@almondsystems.com.ng">admin@almondsystems.com.ng</a><a href="tel:+2349168775034">+234 916 877 5034</a></div>
+    </div>
+  </div>
+</section>
+<footer class="as-footer"><div class="as-footer-inner"><p>2026 Almond Systems NG. CAC BN 2180265.</p></div></footer>
+
+
+
+
+
+
+
+<script>
+(() => {
+  const toggle = document.querySelector('#asNavToggle');
+  const links = document.querySelector('#asNavLinks');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    links.classList.remove('is-open');
+    links.querySelectorAll('details').forEach((item) => item.removeAttribute('open'));
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.as-dropdown')) links.querySelectorAll('details').forEach((item) => item.removeAttribute('open'));
+  });
+})();
+</script>
+
+<script>
+(() => {
+  const nav = document.querySelector('.as-site-header');
+  if (!nav) return;
+  const dropdowns = [...nav.querySelectorAll('.as-dropdown')];
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('toggle', () => {
+      if (!dropdown.open) return;
+      dropdowns.forEach((other) => {
+        if (other !== dropdown) other.removeAttribute('open');
+      });
+    });
+  });
+  document.addEventListener('click', (event) => {
+    if (nav.contains(event.target)) return;
+    dropdowns.forEach((dropdown) => dropdown.removeAttribute('open'));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    dropdowns.forEach((dropdown) => dropdown.removeAttribute('open'));
+  });
+})();
+</script>
 </body>
 </html>

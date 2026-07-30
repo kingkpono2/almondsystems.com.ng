@@ -1,0 +1,270 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 7571 >>
+stream
+BT /F1 16 Tf 1 0 0 1 42 802 Tm (Almond FinBank Pro API - Senior Backend Interview Brief) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 778 Tm (Generated: 2026-07-27 17:37 UTC) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 768 Tm (Live API: https://almondsystems.com.ng/finbank-api/docs) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 758 Tm (Repository: https://github.com/kingkpono2/finbank-nestjs) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 743 Tm (Executive Summary) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 728 Tm (Almond FinBank Pro API is a NestJS/Node.js digital banking backend built to demonstrate senior backend) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 718 Tm (engineering in a fintech context. It exposes REST APIs for authentication, account creation, transfers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 708 Tm (payment webhooks, health checks, SMS simulation, and Swagger-based testing. The deployed stack uses) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 698 Tm (PostgreSQL for durable financial records, Redis for account caching, RabbitMQ for asynchronous domain) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 688 Tm (events, Brevo for transactional email, Docker Compose for service orchestration, and Nginx for production) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 678 Tm (routing under /finbank-api.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 663 Tm (The latest server hardening focused on production-style optimization: explicit PostgreSQL indexes, TypeORM) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 653 Tm (auto-sync disabled for production, idempotent transfer retries, deterministic pessimistic locking, cache) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 643 Tm (invalidation after balance changes, and verified Brevo email delivery for signup and transfer receipts.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 628 Tm (What You Built) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 613 Tm (- You drove the FinBank product direction: a banking API that can be explained in a senior Node/NestJS) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 603 Tm (  fintech interview.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 593 Tm (- You already had the application working in Swagger locally and wanted targeted improvements around) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 583 Tm (  Redis, RabbitMQ, email, SMS, deployment, and production readiness.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 573 Tm (- You provided the repositories, server access, domain, product positioning, and Brevo credentials needed) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 563 Tm (  to make the app public and testable.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 553 Tm (- You insisted on step-by-step debugging, which produced an interview-friendly understanding of the system) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 543 Tm (  instead of hidden changes.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 528 Tm (What Codex Assisted With) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 513 Tm (- Deployed the FinBank API on the server using Docker Compose with PostgreSQL, Redis, RabbitMQ, and the) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 503 Tm (  NestJS API container.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 493 Tm (- Configured Nginx routing so Swagger is available at https://almondsystems.com.ng/finbank-api/docs.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 483 Tm (- Replaced fragile cache-manager usage with a direct Redis module/service pattern and fixed the missing) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 473 Tm (  await cache bug.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 463 Tm (- Connected RabbitMQ microservice events for user registration and transfer completion.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 453 Tm (- Troubleshot SMTP failures: confirmed Postfix accepted messages but outbound port 25 was blocked;) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 443 Tm (  confirmed Lark and Gmail auth failures; then integrated Brevo transactional email.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 433 Tm (- Verified signup welcome email and transfer receipt email are recorded as SUCCESS using provider BREVO.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 423 Tm (- Added Swagger JSON payload examples and fixed CSP so examples can render in Swagger UI.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 413 Tm (- Added production optimization gaps: transfer idempotency, deterministic account locking, DB indexes,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 403 Tm (  TypeORM production sync control, Redis cache invalidation, and safer cache reads.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 393 Tm (- Pushed the Brevo email provider update to GitHub previously, and the current optimization changes should) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 383 Tm (  also be synced to Git after final verification.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 368 Tm (Current Architecture) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 353 Tm (Client or Swagger sends REST requests to the NestJS API through Nginx. Auth requests issue JWT access and) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 343 Tm (refresh tokens. Account APIs persist account records in PostgreSQL and use Redis for account-number cache) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 333 Tm (reads. Transfer requests run inside an explicit PostgreSQL transaction using pessimistic row locks,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 323 Tm (debit/credit account updates, transaction record creation, and double-entry ledger rows. After commit, the) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 313 Tm (service invalidates Redis account cache and publishes a RabbitMQ transfer.completed event. The event) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 303 Tm (consumer sends transfer receipts through Brevo and logs mock SMS output. Audit logs capture the transfer) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 293 Tm (action separately from the financial transaction.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 278 Tm (Requirement Mapping) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 263 Tm (Node.js and NestJS: Implemented as a modular NestJS API with Auth, Users, Accounts, Transactions, Ledger,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 253 Tm (Events, Notifications, Redis, Audit, Health, Payments, Webhooks, and Mock/SMS modules.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 238 Tm (RESTful APIs and microservices: REST endpoints serve mobile/web clients. RabbitMQ is used as the async) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 228 Tm (microservice transport for domain events.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 213 Tm (PostgreSQL expertise: Financial state is persisted in PostgreSQL. Transfers use database transactions,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 203 Tm (pessimistic locks, durable transaction rows, and ledger entries. Indexes were added for account,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 193 Tm (transaction, ledger, notification, and audit lookups.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 178 Tm (Redis caching: Account-number lookup is cached with TTL, avoids caching nulls, and invalidates) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 168 Tm (source/destination account cache entries after a successful transfer.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 153 Tm (High transaction volume and data integrity: The transfer path uses row-level locks, deterministic lock) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 143 Tm (ordering, transaction rollback on errors, double-entry ledger rows, and idempotency keys to prevent) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 133 Tm (duplicate debit on retry.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 118 Tm (Third-party integrations: Mock payment gateway and webhook endpoint exist for interview/demo purposes.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 108 Tm (Brevo transactional email is integrated for real outbound signup and transfer emails.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 93 Tm (Security: JWT auth protects account and transfer APIs. Helmet, validation whitelist, non-whitelisted) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 83 Tm (request rejection, refresh token handling, and audit logs are present. Secrets are kept in .env, not) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 73 Tm (source control.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 58 Tm (Docker/cloud: The app is deployed on a cloud VPS using Docker Compose and Nginx reverse proxy.) Tj ET
+BT /F1 8 Tf 1 0 0 1 530 24 Tm (1) Tj ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 5395 >>
+stream
+BT /F1 11 Tf 1 0 0 1 42 802 Tm (Optimizations Implemented) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 787 Tm (1. TypeORM synchronize is now controlled by TYPEORM_SYNC and set false in production. This avoids) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 777 Tm (accidental schema drift in live financial systems.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 767 Tm (2. Explicit indexes were added:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 757 Tm (   - transaction fromAccount + createdAt) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 747 Tm (   - transaction toAccount + createdAt) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 737 Tm (   - transaction status + createdAt) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 727 Tm (   - unique idempotency key index) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 717 Tm (   - account owner + status) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 707 Tm (   - ledger account + createdAt) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 697 Tm (   - ledger reference) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 687 Tm (   - audit user/action + createdAt) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 677 Tm (   - notification recipient/status/provider indexes) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 667 Tm (3. Transfer idempotency was added using client-supplied idempotencyKey. Retrying the same transfer returns) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 657 Tm (the original reference with idempotentReplay true.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 647 Tm (4. Transfer locking now locks both account rows in deterministic account-number order to reduce deadlock) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 637 Tm (risk under concurrent opposite-direction transfers.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 627 Tm (5. Redis cache safety was improved: account lookups only cache real account rows and transfer success) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 617 Tm (invalidates both affected account cache keys.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 607 Tm (6. Swagger CSP was adjusted so inline example population can work in the hosted docs page.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 597 Tm (7. Brevo transactional email avoids VPS port 25 restrictions and sends through a legitimate provider.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 582 Tm (Verified Production Tests) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 567 Tm (Health check: GET /finbank-api/health returned status UP.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 552 Tm (Registration: POST /finbank-api/auth/register returned 201 Created and produced a notification_log row) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 542 Tm (with provider BREVO and status SUCCESS.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 527 Tm (Transfer with retry: A live transfer with idempotencyKey interview-transfer-1785173689614 returned) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 517 Tm (success. Retrying the same request returned the same reference and idempotentReplay true.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 502 Tm (Database integrity: The idempotency key had exactly one transaction row. The transfer reference had) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 492 Tm (exactly two ledger entries, one debit and one credit.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 477 Tm (Email: Transfer receipt for reference TXN-1785173690778-2902 was saved as SUCCESS / BREVO.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 462 Tm (Swagger: Public docs JSON includes idempotencyKey and the content security policy now allows the Swagger) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 452 Tm (example filler script.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 437 Tm (Swagger Test Payloads) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 422 Tm (Register:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 412 Tm (POST /finbank-api/auth/register) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 402 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 392 Tm (  "firstName": "Kpono-Abasi",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 382 Tm (  "lastName": "Akpabio",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 372 Tm (  "email": "change-me+001@gmail.com",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 362 Tm (  "phone": "+2348011112201",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 352 Tm (  "password": "Password1") Tj ET
+BT /F1 8 Tf 1 0 0 1 42 342 Tm (}) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 327 Tm (Login:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 317 Tm (POST /finbank-api/auth/login) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 307 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 297 Tm (  "email": "change-me+001@gmail.com",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 287 Tm (  "password": "Password1") Tj ET
+BT /F1 8 Tf 1 0 0 1 42 277 Tm (}) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 262 Tm (Create account:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 252 Tm (POST /finbank-api/accounts) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 242 Tm (Authorization: Bearer <accessToken>) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 232 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 222 Tm (  "type": "SAVINGS",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 212 Tm (  "initialBalance": 50000) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 202 Tm (}) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 187 Tm (Transfer:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 177 Tm (POST /finbank-api/transactions/transfer) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 167 Tm (Authorization: Bearer <accessToken>) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 157 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 147 Tm (  "fromAccount": "replace-with-source-accountNumber",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 137 Tm (  "toAccount": "replace-with-destination-accountNumber",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 127 Tm (  "amount": 2500,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 117 Tm (  "narration": "Live Swagger demo transfer",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 107 Tm (  "idempotencyKey": "demo-transfer-20260727-001") Tj ET
+BT /F1 8 Tf 1 0 0 1 42 97 Tm (}) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 82 Tm (SMS mock:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 72 Tm (POST /finbank-api/mock/sms) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 62 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 530 24 Tm (2) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 6553 >>
+stream
+BT /F1 8 Tf 1 0 0 1 42 802 Tm (  "phone": "+2348011112299",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 792 Tm (  "message": "Your Almond FinBank demo transfer of NGN 2500 was successful.") Tj ET
+BT /F1 8 Tf 1 0 0 1 42 782 Tm (}) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 767 Tm (Webhook mock:) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 757 Tm (POST /finbank-api/webhooks/payment) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 747 Tm ({) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 737 Tm (  "provider": "flutterwave",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 727 Tm (  "reference": "FLW-DEMO-20260727-001",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 717 Tm (  "accountNumber": "replace-with-accountNumber",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 707 Tm (  "amount": 25000,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 697 Tm (  "currency": "NGN",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 687 Tm (  "status": "SUCCESS",) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 677 Tm (  "paidAt": "2026-07-27T12:00:00.000Z") Tj ET
+BT /F1 8 Tf 1 0 0 1 42 667 Tm (}) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 652 Tm (Likely Interview Questions and Strong Answers) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 637 Tm (Q: Walk me through the architecture.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 627 Tm (A: It is a modular NestJS banking backend. REST controllers handle auth, accounts, transfers, mocks,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 617 Tm (webhooks, and health. PostgreSQL is the source of truth. Redis is used for account lookup caching.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 607 Tm (RabbitMQ decouples side effects like emails and SMS from the core transfer transaction. Brevo sends) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 597 Tm (transactional email. Docker Compose runs API, Postgres, Redis, and RabbitMQ, while Nginx exposes the API) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 587 Tm (under /finbank-api.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 572 Tm (Q: How do you ensure transfer integrity?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 562 Tm (A: Transfers run in an explicit database transaction. The service locks the two account rows with) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 552 Tm (pessimistic write locks, validates status and balance, updates balances, creates one transaction record,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 542 Tm (and writes debit and credit ledger entries. If any step fails, it rolls back. Side effects like email) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 532 Tm (are published only after commit.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 517 Tm (Q: Why add idempotency?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 507 Tm (A: In banking, clients retry requests because of network timeouts. Without idempotency, a retry could) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 497 Tm (debit twice. The API now accepts an idempotencyKey, stores it uniquely, and returns the original) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 487 Tm (transaction reference on replay.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 472 Tm (Q: How did you reduce deadlock risk?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 462 Tm (A: Instead of locking sender then receiver in request order, the service locks both accounts in) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 452 Tm (deterministic account-number order. This avoids two concurrent opposite-direction transfers each holding) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 442 Tm (one lock and waiting on the other.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 427 Tm (Q: What did Redis do here?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 417 Tm (A: Redis caches account lookups by account number with a short TTL. After a transfer, both affected) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 407 Tm (account cache keys are invalidated so balance reads do not serve stale state.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 392 Tm (Q: Why RabbitMQ?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 382 Tm (A: Email and SMS are non-critical side effects. RabbitMQ lets the transfer commit quickly and reliably,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 372 Tm (then the consumer processes notifications asynchronously. It improves resilience and avoids coupling) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 362 Tm (banking consistency to an email provider outage.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 347 Tm (Q: What indexes did you add and why?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 337 Tm (A: I added indexes for transaction history by source/destination account and date, status/date for) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 327 Tm (operational queries, ledger account/date and reference lookup, audit user/action/date, notification) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 317 Tm (recipient/status/provider, and a unique idempotency key. These match common financial query paths.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 302 Tm (Q: Why disable TypeORM synchronize in production?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 292 Tm (A: Auto-sync is convenient in development but risky in production because schema changes can happen) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 282 Tm (implicitly at startup. Financial systems should use explicit migrations or controlled SQL scripts.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 267 Tm (Q: How do you handle email delivery?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 257 Tm (A: Direct Postfix was blocked on outbound port 25 and would also have SPF issues. I integrated Brevo) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 247 Tm (transactional email via API, configured sender identity, and verified successful signup and transfer) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 237 Tm (receipt logs.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 222 Tm (Q: What would you improve next?) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 212 Tm (A: Add proper TypeORM migrations, CI/CD, automated e2e tests, structured logging, metrics, tracing, a) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 202 Tm (real SMS provider, webhook signature verification, rate limiting, RBAC policies, reconciliation jobs,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 192 Tm (settlement flows, and a secrets manager.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 177 Tm (Remaining Production Roadmap) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 162 Tm (- Replace demo SQL patching with versioned TypeORM migrations.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 152 Tm (- Add CI pipeline for lint, unit tests, e2e tests, and Docker build.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 142 Tm (- Add Prometheus/OpenTelemetry metrics and centralized logs.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 132 Tm (- Add request correlation IDs across REST, RabbitMQ, and notification logs.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 122 Tm (- Add webhook signature verification and replay protection.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 112 Tm (- Add real SMS provider integration.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 102 Tm (- Add admin/support authorization policies.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 92 Tm (- Add reconciliation and settlement modules for complete banking operations.) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 82 Tm (- Move secrets to a cloud secrets manager.) Tj ET
+BT /F1 11 Tf 1 0 0 1 42 67 Tm (Interview Positioning) Tj ET
+BT /F1 8 Tf 1 0 0 1 530 24 Tm (3) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 743 >>
+stream
+BT /F1 8 Tf 1 0 0 1 42 802 Tm (Position this app as a practical fintech backend demo that you hardened iteratively: you started with) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 792 Tm (working Swagger APIs, then added production concerns around data integrity, caching, messaging, email) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 782 Tm (delivery, deployment, and optimization. Be honest that it is not a full bank core, but it demonstrates the) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 772 Tm (exact senior backend patterns needed in regulated financial systems: transactional correctness, retries,) Tj ET
+BT /F1 8 Tf 1 0 0 1 42 762 Tm (idempotency, async side effects, auditability, deployment, and performance-aware database design.) Tj ET
+BT /F1 8 Tf 1 0 0 1 530 24 Tm (4) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
+endobj
+11 0 obj
+<< /Type /Catalog /Pages 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000007702 00000 n 
+0000007829 00000 n 
+0000013276 00000 n 
+0000013403 00000 n 
+0000020008 00000 n 
+0000020135 00000 n 
+0000020929 00000 n 
+0000021056 00000 n 
+0000021132 00000 n 
+trailer
+<< /Size 12 /Root 11 0 R >>
+startxref
+21183
+%%EOF

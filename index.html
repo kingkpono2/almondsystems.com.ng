@@ -363,8 +363,11 @@ button,input,textarea{font:inherit}
   font-weight:750;
   transition:color .18s ease,background .18s ease,transform .18s ease;
 }
-.nav-links > li > a{padding:0 .72rem}
-.nav-links > li > a:hover{color:#fff;background:rgba(255,255,255,.1);transform:none}
+.nav-links > li > a{padding:0 .72rem;position:relative;background:transparent}
+.nav-links > li > a::after{content:"";position:absolute;left:.72rem;right:.72rem;bottom:6px;height:2px;border-radius:99px;background:var(--teal);transform:scaleX(0);transition:transform .18s ease}
+.nav-links > li > a:hover,.nav-links > li > a.is-active,.has-dropdown:hover > a,.has-dropdown:focus-within > a{color:#fff;background:transparent;transform:none}
+.nav-links > li > a:hover::after,.nav-links > li > a.is-active::after,.has-dropdown:hover > a::after,.has-dropdown:focus-within > a::after{transform:scaleX(1)}
+.nav-dropdown a::after{display:none}
 .nav-caret{font-size:.72rem;margin-left:.22rem;opacity:.78;transition:transform .18s ease,opacity .18s ease}
 .has-dropdown:hover > a .nav-caret,.has-dropdown:focus-within > a .nav-caret{transform:rotate(180deg);opacity:1}
 .nav-dropdown{
@@ -912,7 +915,7 @@ details p{
       <img src="/assets/logo/almond-logo-live.png?v=20260717b" alt="Almond Systems">
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#top">Home</a></li>
+      <li><a class="is-active" href="#top">Home</a></li>
       <li class="has-dropdown">
         <a href="#offers" aria-haspopup="true">Offers <i class="ti ti-chevron-down nav-caret" aria-hidden="true"></i></a>
         <ul class="nav-dropdown" aria-label="Offer links">
@@ -929,6 +932,8 @@ details p{
         <ul class="nav-dropdown" aria-label="Work links">
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#products">Existing products</a></li>
+          <li><a href="/products/">Product pages</a></li>
+          <li><a href="/downloads/">Downloads</a></li>
           <li><a href="#capabilities">Capabilities</a></li>
         </ul>
       </li>
@@ -1123,11 +1128,11 @@ details p{
         </article>
         <article class="home-product-card reveal">
           <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo node"><i class="ti ti-brand-nodejs"></i> Node.js</span><span class="stack-logo nest">NestJS</span><span class="stack-logo doc"><i class="ti ti-file-description"></i> Swagger</span></div>
-          <div class="home-product-body"><h3>FinBank API</h3><p>Banking API reference with auth, transfers and Swagger.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+          <div class="home-product-body"><h3>FinBank API</h3><p>Banking API reference with auth, transfers and Swagger.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a><a class="btn btn-text" href="/finbank-api/docs" target="_blank" rel="noopener">Open Swagger</a></div></div>
         </article>
         <article class="home-product-card reveal">
           <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo spring"><i class="ti ti-leaf"></i> Spring Boot</span><span class="stack-logo java"><i class="ti ti-cup"></i> Java</span><span class="stack-logo doc"><i class="ti ti-file-description"></i> Swagger</span></div>
-          <div class="home-product-body"><h3>Internet Banking</h3><p>Spring Boot banking backend with balances and transfers.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+          <div class="home-product-body"><h3>Internet Banking</h3><p>Spring Boot banking backend with balances and transfers.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a><a class="btn btn-text" href="/internet-banking/swagger-ui.html" target="_blank" rel="noopener">Open Swagger</a></div></div>
         </article>
         <article class="home-product-card reveal">
           <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo wordpress"><i class="ti ti-brand-wordpress"></i> WordPress</span><span class="stack-logo woo">WooCommerce</span><span class="stack-logo ship"><i class="ti ti-truck-delivery"></i> Rates</span></div>
@@ -1287,7 +1292,7 @@ details p{
         <p>Kpono-Abasi Akpabio leads Almond Systems with a backend-first engineering background across fintech, eCommerce, ERP, document workflows, logistics, cloud systems, and launch platforms. His work focuses on production APIs, distributed systems, payment flows, Redis-backed performance, RabbitMQ and Kafka messaging patterns, deployment discipline, and practical products businesses can operate.</p>
         <div class="founder-links">
           <a class="btn btn-primary" href="#backend-products"><i class="ti ti-server" aria-hidden="true"></i> View backend products</a>
-          <a class="btn btn-light" href="mailto:kingkpono@gmail.com?subject=Founder%20conversation"><i class="ti ti-mail" aria-hidden="true"></i> Contact founder</a>
+          <a class="btn btn-light" href="mailto:admin@almondsystems.com.ng?subject=Founder%20conversation"><i class="ti ti-mail" aria-hidden="true"></i> Contact founder</a>
         </div>
       </div>
     </div>
@@ -1305,7 +1310,7 @@ details p{
       </div>
       <div class="contact-actions reveal">
         <a class="btn btn-primary" href="https://wa.me/2349168775034?text=Hi%20Almond%20Systems%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-        <a class="btn btn-light" href="mailto:kingkpono@gmail.com?subject=Project%20conversation"><i class="ti ti-mail" aria-hidden="true"></i> Email</a>
+        <a class="btn btn-light" href="mailto:admin@almondsystems.com.ng?subject=Project%20conversation"><i class="ti ti-mail" aria-hidden="true"></i> Email</a>
       </div>
     </div>
   </section>
