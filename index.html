@@ -455,9 +455,9 @@ button,input,textarea{font:inherit}
 .hero .kicker::before{background:#8ff3f6}
 h1,h2,h3,p{margin-top:0}
 h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem);line-height:1;letter-spacing:0;font-weight:900;animation:fadeLift .72s cubic-bezier(.2,.8,.2,1) .05s both}
-.hero h1{width:min(700px,100%);color:#fff;text-shadow:0 5px 24px rgba(0,0,0,.34);font-size:clamp(3.35rem,6vw,5.45rem);animation:heroTextIn .78s cubic-bezier(.2,.8,.2,1) .08s both}
+.hero h1{width:min(640px,100%);color:#fff;text-shadow:0 5px 24px rgba(0,0,0,.34);font-size:clamp(2.5rem,4vw,3.85rem);line-height:1.04;animation:heroTextIn .78s cubic-bezier(.2,.8,.2,1) .08s both}
 .lead{width:min(620px,100%);color:#38342d;font-size:clamp(1.05rem,1.8vw,1.38rem);line-height:1.55;margin-bottom:1.75rem;animation:fadeLift .72s cubic-bezier(.2,.8,.2,1) .16s both}
-.hero .lead{width:min(640px,100%);color:rgba(255,255,255,.9);text-shadow:0 3px 16px rgba(0,0,0,.3);animation:heroTextIn .78s cubic-bezier(.2,.8,.2,1) .18s both}
+.hero .lead{width:min(620px,100%);color:rgba(255,255,255,.9);font-size:clamp(1rem,1.45vw,1.15rem);text-shadow:0 3px 16px rgba(0,0,0,.3);animation:heroTextIn .78s cubic-bezier(.2,.8,.2,1) .18s both}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:0;animation:heroCtaIn .72s cubic-bezier(.2,.8,.2,1) .3s both}
 .hero .btn-primary{background:#f6b93b;border-color:#f6b93b;color:#17130b}
 .hero .btn-primary:hover{background:#ffd36a;border-color:#ffd36a;color:#17130b}
@@ -502,55 +502,7 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
   margin:0;
 }
 .products{background:var(--paper-2)}
-.product-stack{
-  display:grid;
-  gap:18px;
-}
-.product-card{
-  position:relative;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(300px,47%);
-  align-items:stretch;
-  min-height:390px;
-  border:1px solid var(--ink);
-  background:var(--paper);
-  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
-}
-.product-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:3px;
-  background:linear-gradient(90deg,var(--navy),var(--gold),var(--coral));
-  transform:scaleX(0);
-  transform-origin:left center;
-  transition:transform .35s ease;
-  z-index:2;
-}
-.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 26px 70px rgba(37,30,20,.13);
-}
-.product-card:hover::before{transform:scaleX(1)}
-.product-card:nth-child(even){
-  grid-template-columns:minmax(300px,45%) minmax(0,1fr);
-}
-.product-card:nth-child(even) .product-copy{order:2}
-.product-copy{
-  padding:clamp(1.05rem,3vw,2rem);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  gap:2rem;
-}
-.product-topline{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.55rem;
-  margin-bottom:1.1rem;
-}
+.product-actions{display:flex;flex-wrap:wrap;gap:.7rem}
 .pill{
   display:inline-flex;
   align-items:center;
@@ -567,112 +519,40 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 }
 .pill.hot{border-color:var(--coral);color:#af4823;background:rgba(239,111,62,.08)}
 .pill.live{border-color:var(--teal-dark);color:var(--teal-dark);background:rgba(46,125,91,.08)}
-.product-copy h3{
-  margin:0 0 1rem;
-  font-size:clamp(1.65rem,3vw,3rem);
-  line-height:.94;
-  letter-spacing:0;
-  font-weight:900;
-}
-.product-copy p{
-  color:#3f3a32;
-  font-size:1.03rem;
-  max-width:590px;
-}
-.feature-list{
+.home-product-grid{
   display:grid;
-  gap:.6rem;
-  margin:1.4rem 0 0;
-  padding:0;
-  list-style:none;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
 }
-.feature-list li{
-  display:flex;
-  gap:.65rem;
-  align-items:flex-start;
-  color:#373229;
-  font-weight:700;
-}
-.feature-list i{
-  color:var(--teal-dark);
-  font-size:1.08rem;
-  margin-top:.13rem;
-}
-.product-actions{display:flex;flex-wrap:wrap;gap:.7rem}
-.product-visual{
-  position:relative;
-  min-height:320px;
-  overflow:hidden;
-  background:var(--ink);
-  border-left:1px solid var(--ink);
-}
-.product-card:nth-child(even) .product-visual{border-left:0;border-right:1px solid var(--ink)}
-.product-visual img{
-  width:100%;
-  height:100%;
-  min-height:320px;
-  object-fit:cover;
-  object-position:top center;
-  transition:transform .65s ease,filter .65s ease;
-}
-.product-card:hover .product-visual img{transform:scale(1.025)}
-.product-visual.phone{
-  display:grid;
-  place-items:center;
-  background:#eaf5f5;
-  padding:1.5rem;
-}
-.product-visual.phone img{
-  width:min(100%,330px);
-  height:auto;
-  min-height:0;
-  object-fit:contain;
-  border-radius:32px;
-  box-shadow:0 20px 55px rgba(17,17,17,.18);
-  animation:phoneFloat 8s ease-in-out infinite;
-}
-.escrow-visual{
+.home-product-card{
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  height:100%;
-  min-height:430px;
-  padding:2rem;
-  color:var(--paper);
-  background:
-    linear-gradient(135deg,rgba(46,125,91,.92),rgba(17,17,17,.98)),
-    var(--ink);
-  background-size:140% 140%;
-  animation:escrowGlow 12s ease-in-out infinite alternate;
+  min-height:100%;
+  overflow:hidden;
+  border:1px solid #b8c8ca;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(16,27,54,.055);
+  transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease;
 }
-.escrow-row{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  gap:1rem;
-  align-items:center;
-  padding:1rem 0;
-  border-bottom:1px solid rgba(247,243,234,.18);
-  animation:fadeLift .6s cubic-bezier(.2,.8,.2,1) both;
-}
-.escrow-row:nth-child(2){animation-delay:.08s}
-.escrow-row:nth-child(3){animation-delay:.16s}
-.escrow-row:nth-child(4){animation-delay:.24s}
-.escrow-row:last-child{border-bottom:0}
-.escrow-icon{
-  width:46px;
-  height:46px;
+.home-product-card:hover{transform:translateY(-3px);border-color:rgba(14,143,152,.34);box-shadow:0 18px 42px rgba(16,27,54,.09)}
+.home-product-thumb{
+  height:124px;
   display:grid;
   place-items:center;
-  border:1px solid rgba(247,243,234,.35);
-  border-radius:999px;
-  animation:iconPulse 3.4s ease-in-out infinite;
+  overflow:hidden;
+  border-bottom:1px solid #c9d6d7;
+  background:linear-gradient(135deg,#eef8f7,#f8fbfb);
 }
-.escrow-row strong{display:block;font-size:1.05rem}
-.escrow-row span{color:rgba(247,243,234,.72);font-size:.88rem}
-.escrow-amount{
-  color:var(--gold);
-  font-weight:900;
-}
+.home-product-thumb.is-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.98) contrast(.98)}
+.stack-thumb{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:18px;background:linear-gradient(135deg,#f8fbfb 0%,#eef8f7 100%)}
+.stack-logo{display:inline-flex;align-items:center;gap:6px;min-height:34px;border-radius:999px;padding:0 11px;background:#fff;border:1px solid #d8e5e6;color:#101827;font-weight:650;font-size:.78rem;box-shadow:0 10px 22px rgba(16,27,54,.07);white-space:nowrap}
+.stack-logo i{font-size:1.05rem}.stack-logo.node{color:#277a32}.stack-logo.nest{color:#d8294b}.stack-logo.spring{color:#4d8b2c}.stack-logo.java{color:#d46b08}.stack-logo.wordpress{color:#185d86}.stack-logo.woo{color:#7f54b3}.stack-logo.ship,.stack-logo.doc{color:#0e8f98}
+.home-product-body{padding:16px;display:grid;gap:10px}
+.home-product-body h3{font-size:1.1rem;margin:0;line-height:1.08;letter-spacing:0;font-weight:800}
+.home-product-body p{margin:0;color:var(--muted);line-height:1.5;font-size:.91rem}
+.home-product-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.home-product-actions .btn{min-height:38px;padding:.62rem .9rem;font-size:.85rem}
 
 
 .backend-products{background:var(--white)}
@@ -690,7 +570,7 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 .portfolio{background:var(--paper)}
 .portfolio-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:18px;
 }
 .portfolio-card{
@@ -707,12 +587,7 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
   background:var(--white);
   box-shadow:0 22px 55px rgba(37,30,20,.11);
 }
-.portfolio-shot{
-  aspect-ratio:16/10;
-  overflow:hidden;
-  background:#d9d2c4;
-  border-bottom:1px solid var(--ink);
-}
+.portfolio-shot{height:150px;overflow:hidden;background:#d9d2c4;border-bottom:1px solid var(--ink)}
 .portfolio-shot img{
   width:100%;
   height:100%;
@@ -722,7 +597,7 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 }
 .portfolio-card:hover .portfolio-shot img{transform:scale(1.045) translateY(-2%)}
 .portfolio-body{
-  padding:1.15rem;
+  padding:16px;
   display:grid;
   gap:.8rem;
 }
@@ -740,13 +615,13 @@ h1{width:min(760px,100%);margin-bottom:1.2rem;font-size:clamp(3rem,6.5vw,5.85rem
 }
 .portfolio-body h3{
   margin:0;
-  font-size:1.45rem;
+  font-size:1.08rem;
   line-height:1.1;
 }
 .portfolio-body p{
   margin:0;
   color:var(--muted);
-  min-height:48px;
+  min-height:0;
 }
 .portfolio-link{
   display:inline-flex;
@@ -971,14 +846,13 @@ details p{
   .nav-dropdown a{min-height:34px;font-size:.8rem;padding:.48rem .78rem;color:#2d3545}
   .hero{min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;background-position:center top}
   .hero-copy{order:1;width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:150px 0 118px}
-  .hero h1{font-size:clamp(2.65rem,9.5vw,4rem);line-height:.96}
+  .hero h1{font-size:clamp(2.35rem,7vw,3.25rem);line-height:1.02}
   .hero .lead{font-size:1.05rem;max-width:560px}
   .proof-strip{margin-top:-62px;padding-bottom:34px}
   .trust-strip{grid-template-columns:1fr;width:min(520px,100%)}
-  .section-head,.product-card,.product-card:nth-child(even),.faq-wrap,.contact-grid{grid-template-columns:1fr}
-  .product-card:nth-child(even) .product-copy{order:0}
-  .product-visual,.product-card:nth-child(even) .product-visual{border-left:0;border-right:0;border-top:1px solid var(--ink)}
-  .portfolio-grid{grid-template-columns:1fr}
+  .section-head,.faq-wrap,.contact-grid{grid-template-columns:1fr}
+  .home-product-grid,.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portfolio-shot{height:140px}
   .capability{grid-template-columns:1fr;gap:.65rem}
   .faq-copy{position:static}
   .contact-actions{justify-content:flex-start}
@@ -994,7 +868,7 @@ details p{
   .brand img{height:44px;max-width:142px}
   .hero{min-height:620px;background-image:linear-gradient(90deg,rgba(6,14,28,.86) 0%,rgba(6,14,28,.68) 42%,rgba(6,14,28,.44) 100%),linear-gradient(180deg,rgba(6,14,28,.34) 0%,rgba(6,14,28,.12) 44%,rgba(6,14,28,.72) 100%),url("assets/images/almond-hero-operations.jpg?v=20260730b");background-position:center top}
   .hero-copy{width:calc(100% - 40px);padding:124px 0 94px}
-  .hero h1{font-size:clamp(2.15rem,10vw,2.8rem);line-height:1;margin-bottom:.9rem}
+  .hero h1{font-size:clamp(2rem,8vw,2.55rem);line-height:1.03;margin-bottom:.9rem}
   .hero .lead{font-size:.98rem;line-height:1.48;margin-bottom:1.25rem}
   .hero-actions{display:grid;grid-template-columns:1fr;gap:.62rem;width:min(330px,100%)}
   .hero-actions .btn{width:100%;min-height:42px;padding:.74rem .85rem;white-space:normal;line-height:1.15}
@@ -1005,12 +879,9 @@ details p{
   .backend-grid{grid-template-columns:1fr;gap:12px}
   .backend-card{padding:1rem;gap:.85rem}
   .backend-card h3{font-size:1.45rem;line-height:1.05}
-  .product-card,.product-card:nth-child(even){grid-template-columns:1fr}
-  .product-copy{padding:1.1rem}
-  .product-visual,.product-visual img,.escrow-visual{min-height:0}
-  .product-visual{padding:1rem}
-  .product-visual img{max-height:260px;object-fit:contain}
-  .product-visual.phone img{width:min(100%,260px)}
+  .home-product-grid,.portfolio-grid{grid-template-columns:1fr}
+  .home-product-thumb{height:142px}
+  .portfolio-shot{height:140px}
   .portfolio-body p{min-height:0}
   details p{padding-right:0}
   .footer-inner{flex-direction:column}
@@ -1091,9 +962,6 @@ details p{
       <div class="hero-actions">
         <a class="btn btn-primary" href="/services/"><i class="ti ti-world-search" aria-hidden="true"></i> Explore services</a>
         <a class="btn btn-light" href="#offers"><i class="ti ti-briefcase" aria-hidden="true"></i> View offers</a>
-        <a class="btn btn-light" href="#backend-products"><i class="ti ti-server" aria-hidden="true"></i> Technical proof</a>
-        <a class="btn btn-light" href="/downloads/BuySmartNG.apk"><i class="ti ti-download" aria-hidden="true"></i> BuySmartNG APK</a>
-        <a class="btn btn-light" href="#portfolio"><i class="ti ti-photo" aria-hidden="true"></i> See live work</a>
       </div>
     </div>
   </section>
@@ -1235,67 +1103,40 @@ details p{
       <div class="section-head reveal">
         <div>
           <p class="eyebrow">Products</p>
-          <h2>Learning tools and operations platforms that are ready to show.</h2>
+          <h2>Quick product preview.</h2>
         </div>
-        <p class="section-intro">SmartPlus and HydrationHQ remain available for education, estates, utilities, tutorial centres and managed-service pilots.</p>
+        <p class="section-intro">The homepage keeps this light. Full product detail, technical notes, links, and downloads live on the Products page.</p>
       </div>
 
-      <div class="product-stack">
-        <article class="product-card reveal">
-          <div class="product-copy">
-            <div>
-              <div class="product-topline">
-                <span class="pill live"><i class="ti ti-device-mobile" aria-hidden="true"></i> Mobile app</span>
-                <span class="pill">WAEC / JAMB / NECO</span>
-              </div>
-              <h3>SmartPlus</h3>
-              <p>A JAMB, WAEC and NECO CBT preparatory mobile APK for Nigerian learners who need timed practice, focused study, weak-area review, offline-friendly preparation, and progress visibility without clutter.</p>
-              <ul class="feature-list">
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Timed CBT sessions for JAMB practice, WAEC revision, NECO preparation, and everyday study.</span></li>
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Progress dashboard that keeps attention on the next useful action.</span></li>
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Designed for Lagos and Nigerian learners preparing under real bandwidth constraints.</span></li>
-              </ul>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-primary" href="https://wa.me/2349168775034?text=I%27d%20like%20a%20SmartPlus%20demo" target="_blank" rel="noopener"><i class="ti ti-player-play" aria-hidden="true"></i> Demo SmartPlus</a>
-              <a class="btn btn-text" href="#faq">Demo FAQ <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
-            </div>
-          </div>
-          <div class="product-visual phone">
-            <img src="assets/products/smartplus.png" alt="SmartPlus CBT mobile APK for JAMB WAEC NECO preparatory practice in Nigeria">
-          </div>
+      <div class="home-product-grid">
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb is-shot"><img src="assets/screenshots/buysmartng.png" alt="BuySmartNG marketplace thumbnail" loading="lazy"></div>
+          <div class="home-product-body"><h3>BuySmartNG</h3><p>Marketplace storefront for sellers, shopping flows and buyer trust cues.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
         </article>
-
-        <article class="product-card reveal">
-          <div class="product-copy">
-            <div>
-              <div class="product-topline">
-                <span class="pill live"><i class="ti ti-droplets" aria-hidden="true"></i> Smart water</span>
-                <span class="pill">Customer + Admin</span>
-              </div>
-              <h3>HydrationHQ</h3>
-              <p>A smart water operations platform with customer access, operator workflows, admin controls, and demo roles for Nigerian teams that need to manage water services clearly.</p>
-              <ul class="feature-list">
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Customer, student, operator, and admin demo access paths.</span></li>
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Built around clear authentication and operational role separation.</span></li>
-                <li><i class="ti ti-check" aria-hidden="true"></i><span>Suitable for school, estate, utility, and managed-service pilots.</span></li>
-              </ul>
-            </div>
-            <div class="product-actions">
-              <a class="btn btn-primary" href="https://wa.me/2349168775034?text=I%27d%20like%20a%20HydrationHQ%20demo" target="_blank" rel="noopener"><i class="ti ti-player-play" aria-hidden="true"></i> Demo HydrationHQ</a>
-              <a class="btn btn-text" href="#portfolio">See build quality <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
-            </div>
-          </div>
-          <div class="product-visual">
-            <img src="assets/products/hydrationhq.png" alt="HydrationHQ smart water platform login, customer app and admin portal screenshot">
-          </div>
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb is-shot"><img src="assets/products/smartplus.png" alt="SmartPlus CBT prep app thumbnail" loading="lazy"></div>
+          <div class="home-product-body"><h3>SmartPlus</h3><p>CBT prep app for JAMB, WAEC and NECO learners.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+        </article>
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb is-shot"><img src="assets/products/hydrationhq.png" alt="HydrationHQ smart water platform thumbnail" loading="lazy"></div>
+          <div class="home-product-body"><h3>HydrationHQ</h3><p>Smart water operations for customers, operators and admins.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+        </article>
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo node"><i class="ti ti-brand-nodejs"></i> Node.js</span><span class="stack-logo nest">NestJS</span><span class="stack-logo doc"><i class="ti ti-file-description"></i> Swagger</span></div>
+          <div class="home-product-body"><h3>FinBank API</h3><p>Banking API reference with auth, transfers and Swagger.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+        </article>
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo spring"><i class="ti ti-leaf"></i> Spring Boot</span><span class="stack-logo java"><i class="ti ti-cup"></i> Java</span><span class="stack-logo doc"><i class="ti ti-file-description"></i> Swagger</span></div>
+          <div class="home-product-body"><h3>Internet Banking</h3><p>Spring Boot banking backend with balances and transfers.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
+        </article>
+        <article class="home-product-card reveal">
+          <div class="home-product-thumb stack-thumb" aria-hidden="true"><span class="stack-logo wordpress"><i class="ti ti-brand-wordpress"></i> WordPress</span><span class="stack-logo woo">WooCommerce</span><span class="stack-logo ship"><i class="ti ti-truck-delivery"></i> Rates</span></div>
+          <div class="home-product-body"><h3>Almond Shipping</h3><p>WooCommerce shipping-rate plugin for Nigerian checkout.</p><div class="home-product-actions"><a class="btn btn-primary" href="/products/">View product</a></div></div>
         </article>
       </div>
     </div>
   </section>
 
-
-  
   <section class="section portfolio" id="portfolio">
     <div class="shell">
       <div class="section-head reveal">
