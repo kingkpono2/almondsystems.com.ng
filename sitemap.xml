@@ -1,89 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://almondsystems.com.ng/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://almondsystems.com.ng/assets/products/smartplus.png</image:loc>
-      <image:title>SmartPlus JAMB WAEC NECO CBT Mobile APK</image:title>
-      <image:caption>SmartPlus CBT mobile APK for JAMB, WAEC and NECO preparatory study in Nigeria.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://almondsystems.com.ng/assets/products/hydrationhq.png</image:loc>
-      <image:title>HydrationHQ Smart Water Platform</image:title>
-      <image:caption>HydrationHQ smart water platform with customer app, operator workflows and admin access.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://almondsystems.com.ng/assets/screenshots/buysmartng.png</image:loc>
-      <image:title>BuySmart Nigeria Marketplace Website</image:title>
-      <image:caption>Live Nigerian commerce marketplace website in the Almond Systems portfolio.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://almondsystems.com.ng/assets/screenshots/ibomservices.png</image:loc>
-      <image:title>Ibom Services Business Directory Website</image:title>
-      <image:caption>Live Nigerian business directory website designed and built by Almond Systems.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/website-design-hosting-nigeria/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/fintech-payment-api-development-nigeria/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/ai-software-development-africa/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/mobile-app-cbt-apk-development-nigeria/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/ecommerce-marketplace-development-nigeria/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/backend-api-cloud-devops-africa/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/services/woocommerce-shipping-plugin-nigeria/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/products/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://almondsystems.com.ng/downloads/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.60</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://almondsystems.com.ng/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://almondsystems.com.ng/products/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://almondsystems.com.ng/domains/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://almondsystems.com.ng/downloads/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/website-design-hosting-nigeria/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/fintech-payment-api-development-nigeria/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/backend-api-cloud-devops-africa/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/ai-software-development-africa/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/mobile-app-cbt-apk-development-nigeria/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/ecommerce-marketplace-development-nigeria/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://almondsystems.com.ng/services/woocommerce-shipping-plugin-nigeria/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.80</priority></url>
 </urlset>
