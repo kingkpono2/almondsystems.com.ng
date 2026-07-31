@@ -5,6 +5,49 @@ RewriteCond %{HTTP_HOST} ^(www\.)?almondsystems\.com$ [NC]
 RewriteRule ^(.*)$ https://almondsystems.com.ng/$1 [R=301,L]
 </IfModule>
 
+# Compression: the largest Core Web Vitals win on this site, since every page
+# ships its CSS inline.
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+AddOutputFilterByType DEFLATE application/json application/xml
+AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+<IfModule mod_brotli.c>
+AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml
+AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# Cache policy. Static assets are fingerprinted with ?v= query strings, so they
+# can be cached hard; HTML must stay fresh so content edits go live immediately.
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType video/mp4 "access plus 1 year"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+<FilesMatch "\.(css|js|png|jpe?g|svg|webp|ico|mp4|woff2?)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+<FilesMatch "\.html$">
+Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
+
+# Security headers
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
 # BEGIN WordPress
 
 RewriteEngine On
