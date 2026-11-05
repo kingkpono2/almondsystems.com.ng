@@ -1,0 +1,7 @@
+# Live Hostinger is canonical; deploy ONLY these blog files
+blog/index.html
+blog/website-design-uyo-business-guide/index.html
+blog/wordpress-website-maintenance-nigeria/index.html
+blog/web-hosting-nigeria-buying-guide/index.html
+blog/android-ios-app-development-uyo/index.html
+blog/ai-automation-solutions-nigeria-small-business/index.html
