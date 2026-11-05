@@ -28,7 +28,7 @@ The runner `tools/hostinger_blog_cd.php` is a PHP CLI script designed for this H
 Select **Custom** mode and `*/5 * * * *` schedule in hPanel. Use this command:
 
 ```sh
-mkdir -p /home/u934246836/.almondsystems-blog-cd && curl -fsSL --max-time 30 https://raw.githubusercontent.com/kingkpono2/almondsystems.com.ng/main/tools/hostinger_blog_cd.php -o /home/u934246836/.almondsystems-blog-cd/runner.php && /usr/bin/php /home/u934246836/.almondsystems-blog-cd/runner.php >> /home/u934246836/.almondsystems-blog-cd/cron.log 2>&1
+cd ~; mkdir -p .almondsystems-blog-cd; curl -fsSL https://raw.githubusercontent.com/kingkpono2/almondsystems.com.ng/main/tools/hostinger_blog_cd.php -o .almondsystems-blog-cd/r.php && php .almondsystems-blog-cd/r.php >> .almondsystems-blog-cd/log 2>&1
 ```
 
 **Important:** This cron job must be saved in Hostinger before continuous deployment is active. Merely committing the runner to GitHub does not publish anything. Verify the status page and live blog before claiming success. Do not set up a second identical job.
@@ -51,3 +51,13 @@ First disable cron in Hostinger. Restore the 2026-11-05 Hostinger backup if a fu
 This is **blog-only**, conflict-aware continuous delivery; it is not a full-site GitHub deployment or bidirectional Git synchronization. A separate audited process is required to pull newer live site files back into GitHub. It uses public GitHub raw content, requires outbound HTTPS and PHP CLI in Hostinger cron, and should be monitored for errors.
 ## Safe site enhancements (Nov 5)
 The same Cron runner now adds the standalone Kpono-Abasi Akpabio founder page, floating WhatsApp CTA across existing static pages, and an exact-match Lulu Culture Foundation → KV Tasks portfolio card replacement. It never copies the older GitHub homepage over the live homepage; each surgical patch makes a backup. New founder URL is added to the existing sitemap. Blog pages get the same WhatsApp script on download. Changes to other existing files remain protected. Check Cron Jobs before adding another job.
+
+## Hostinger UI creation status — November 5, 2026
+
+The correct cron **Custom** command is shown above and is 251 characters long, meeting Hostinger's 255-character field maximum. Set Minute ***/5**, and Hour, Day, Month, Weekday all **\***. The earlier longer 327-character command is invalid and must not be used.
+
+An authenticated browser automation attempt filled the form, but **Hostinger blocked Save with Cloudflare Turnstile / network request failed**. Consequently no cron job was created or activated. The live /blog and /about/kpono-abasi-akpabio endpoints were verified 404 immediately afterward. This document describes a prepared deployment; it is NOT evidence of a successful production rollout.
+
+To activate: from a normal human-signed-in hPanel browser, open Advanced → Cron Jobs, create ONE Custom job with the short command and schedule above, verify it is listed, then check /blog/, /about/kpono-abasi-akpabio/ and /.well-known/almond-cd-status.txt after its first execution. Do not add a second job if one exists.
+
+Safety: The PHP runner never runs git pull in live document root; it creates missing pages and modifies identified live files only through surgical, backed-up patches with explicit guards. Live edits to managed files are protected by recorded checksums. Hostinger manual snapshot from Nov 5 is a separate restore point.
