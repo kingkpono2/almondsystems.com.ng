@@ -1,0 +1,46 @@
+name: Sync blog-only Hostinger deployment branch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/**'
+      - '.github/workflows/publish-blog-branch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: almondsystems-blog-only-deploy
+  cancel-in-progress: false
+
+jobs:
+  sync-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Mirror blog/ to isolated deployment branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f blog/index.html
+          SRC="$(mktemp -d)"
+          cp -a blog/. "$SRC"/
+          git fetch origin deploy/almond-blog
+          git switch --detach origin/deploy/almond-blog
+          # This branch maps ONLY to Hostinger public_html/blog, never public_html.
+          rsync -a --delete --exclude='.git/' "$SRC"/ ./
+          test -f index.html
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No blog changes to sync."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m "Sync blog-only deployment from main $GITHUB_SHA"
+          git push origin HEAD:refs/heads/deploy/almond-blog
