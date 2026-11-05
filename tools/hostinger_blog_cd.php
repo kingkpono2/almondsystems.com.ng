@@ -45,7 +45,7 @@ if (!is_array($tree) || empty($tree['tree']) || !empty($tree['truncated'])) { $n
 $paths = [];
 foreach ($tree['tree'] as $entry) {
     $path = $entry['path'] ?? '';
-    if (($entry['type'] ?? '') === 'blob' && (preg_match('~^blog/(?:[a-z0-9-]+/)?index\\.html$~D', $path) || in_array($path, ['about/kpono-abasi-akpabio/index.html','assets/js/almond-whatsapp-float.js'], true)) && ($entry['size'] ?? 0) < 1024 * 1024) $paths[] = $path;
+    if (($entry['type'] ?? '') === 'blob' && (preg_match('~^blog/(?:[a-z0-9-]+/)?index\\.html$~D', $path) || in_array($path, ['about/kpono-abasi-akpabio/index.html','assets/js/almond-whatsapp-float.js','assets/screenshots/kvtasks.png'], true)) && ($entry['size'] ?? 0) < 1024 * 1024) $paths[] = $path;
 }
 if (!in_array('blog/index.html', $paths, true)) { $note('ERROR: No blog index. No site changes.'); exit(1); }
 sort($paths);
@@ -53,7 +53,7 @@ if (count($paths) > 101) { $note('ERROR: Too many blog pages. No changes.'); exi
 $sourceMap = [];
 foreach ($paths as $path) {
     $content = $download("https://raw.githubusercontent.com/{$repo}/main/{$path}");
-    if ($content === null || strlen($content) < 100 || (substr($path, -5) === '.html' ? stripos($content, '<html') === false : strpos($content, 'data-almond-whatsapp') === false)) { $note("ERROR: Cannot download valid {$path}; no changes."); exit(1); }
+    if ($content === null || strlen($content) < 100 || (substr($path, -5) === '.html' ? stripos($content, '<html') === false : (substr($path, -4) === '.png' ? substr($content, 0, 8) !== "\x89PNG\r\n\x1a\n" : strpos($content, 'data-almond-whatsapp') === false))) { $note("ERROR: Cannot download valid {$path}; no changes."); exit(1); }
     if (strncmp($path, 'blog/', 5) === 0 && strpos($content, 'almond-whatsapp-float.js') === false) $content = preg_replace('~</body>~i','<script src="/assets/js/almond-whatsapp-float.js" defer></script></body>',$content,1) ?? $content;
     $sourceMap[$path] = $content;
 }
