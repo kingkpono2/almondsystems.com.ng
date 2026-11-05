@@ -1,0 +1,60 @@
+name: Capture actual KV Tasks homepage screenshot
+on:
+  push:
+    paths:
+      - '.github/workflows/capture-kvtasks.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install browser
+        run: |
+          npm install --no-save --no-package-lock playwright
+          npx playwright install --with-deps chromium
+      - name: Capture real kvtasks.com
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/screenshots
+          node - <<'NODE'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            const page = await browser.newPage({viewport:{width:1365,height:850},deviceScaleFactor:1});
+            await page.goto('https://kvtasks.com/',{waitUntil:'domcontentloaded',timeout:60000});
+            await page.waitForTimeout(3000);
+            const text = await page.locator('body').innerText();
+            if (!text.includes('Get small') && !text.includes('KV Tasks')) throw new Error('Unexpected KV Tasks page');
+            await page.screenshot({path:'assets/screenshots/kvtasks.png',fullPage:false,animations:'disabled'});
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+          test "$(wc -c < assets/screenshots/kvtasks.png)" -gt 30000
+      - name: Use captured screenshot in portfolio
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          page=Path('index.html')
+          text=page.read_text()
+          src='https://image.thum.io/get/noanimate/width/960/crop/620/https://kvtasks.com/'
+          if src not in text and 'assets/screenshots/kvtasks.png' not in text:
+              raise SystemExit('KV Tasks screenshot markup not recognized; no page edit')
+          if src in text:
+              page.write_text(text.replace(src,'/assets/screenshots/kvtasks.png'))
+          PY
+      - name: Preserve screenshot in GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/screenshots/kvtasks.png index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Capture authentic KV Tasks homepage screenshot"
+          git pull --rebase origin main
+          git push origin HEAD:main

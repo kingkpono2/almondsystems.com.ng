@@ -1,0 +1,17 @@
+name: Lint Hostinger deployment PHP
+on:
+  push:
+    paths:
+      - 'tools/hostinger_blog_cd.php'
+      - 'deployment/*.php'
+      - '.github/workflows/lint-hostinger-php.yml'
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PHP syntax check
+        run: |
+          php -l tools/hostinger_blog_cd.php
+          php -l deployment/update-kvtasks-portfolio.php
