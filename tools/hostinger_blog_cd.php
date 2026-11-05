@@ -45,7 +45,7 @@ if (!is_array($tree) || empty($tree['tree']) || !empty($tree['truncated'])) { $n
 $paths = [];
 foreach ($tree['tree'] as $entry) {
     $path = $entry['path'] ?? '';
-    if (($entry['type'] ?? '') === 'blob' && preg_match('~^blog/(?:[a-z0-9-]+/)?index\.html$~D', $path) && ($entry['size'] ?? 0) < 1024 * 1024) $paths[] = $path;
+    if (($entry['type'] ?? '') === 'blob' && (preg_match('~^blog/(?:[a-z0-9-]+/)?index\\.html$~D', $path) || in_array($path, ['about/kpono-abasi-akpabio/index.html','assets/js/almond-whatsapp-float.js'], true)) && ($entry['size'] ?? 0) < 1024 * 1024) $paths[] = $path;
 }
 if (!in_array('blog/index.html', $paths, true)) { $note('ERROR: No blog index. No site changes.'); exit(1); }
 sort($paths);
@@ -53,7 +53,8 @@ if (count($paths) > 101) { $note('ERROR: Too many blog pages. No changes.'); exi
 $sourceMap = [];
 foreach ($paths as $path) {
     $content = $download("https://raw.githubusercontent.com/{$repo}/main/{$path}");
-    if ($content === null || strlen($content) < 100 || stripos($content, '<html') === false) { $note("ERROR: Cannot download valid {$path}; no changes."); exit(1); }
+    if ($content === null || strlen($content) < 100 || (substr($path, -5) === '.html' ? stripos($content, '<html') === false : strpos($content, 'data-almond-whatsapp') === false)) { $note("ERROR: Cannot download valid {$path}; no changes."); exit(1); }
+    if (strncmp($path, 'blog/', 5) === 0 && strpos($content, 'almond-whatsapp-float.js') === false) $content = preg_replace('~</body>~i','<script src="/assets/js/almond-whatsapp-float.js" defer></script></body>',$content,1) ?? $content;
     $sourceMap[$path] = $content;
 }
 $note('START ' . $now . ', found ' . count($sourceMap) . ' blog pages.');
@@ -95,6 +96,7 @@ $patch('sitemap.xml', static function (string $xml) use ($paths): string {
     if (substr_count($xml, '</urlset>') !== 1) return $xml;
     $additions = '';
     foreach ($paths as $path) {
+        if (substr($path, -10) !== 'index.html') continue;
         $slug = preg_replace('~index\.html$~', '', $path);
         $url = 'https://almondsystems.com.ng/' . $slug;
         if (strpos($xml, '<loc>' . $url . '</loc>') === false) $additions .= '  <url><loc>' . $url . '</loc><lastmod>' . gmdate('Y-m-d') . "</lastmod></url>\n";
@@ -104,6 +106,46 @@ $patch('sitemap.xml', static function (string $xml) use ($paths): string {
     if (function_exists('simplexml_load_string') && @simplexml_load_string($updated) === false) return $xml;
     return $updated;
 });
+
+// Non-destructive homepage updates: modify only matching elements, backup first.
+$repoHome=$download("https://raw.githubusercontent.com/{$repo}/main/index.html");
+$card=static function(string $html,string $heading):?array{
+  $p=strpos($html,$heading);if($p===false)return null;
+  $a=strrpos(substr($html,0,$p),'<article class="portfolio-card reveal">');
+  $b=strpos($html,'</article>',$p);if($a===false||$b===false||$b-$a>2500)return null;
+  $b+=strlen('</article>');return [$a,$b,substr($html,$a,$b-$a)];
+};
+if(is_string($repoHome)){
+  $new=$card($repoHome,'<h3>KV Tasks</h3>');
+  if($new&&strpos($new[2],'kvtasks.com')!==false)$patch('index.html',static function(string $html)use($card,$new):string{
+    if(strpos($html,'<h3>KV Tasks</h3>')!==false)return $html;
+    $old=$card($html,'<h3>Lulu Culture Foundation</h3>');
+    if(!$old||strpos($old[2],'luluculturefoundation.org')===false)return $html;
+    return substr_replace($html,$new[2],$old[0],$old[1]-$old[0]);
+  });
+}
+$patch('index.html',static function(string $html):string{
+  if(strpos($html,'href="/about/kpono-abasi-akpabio/"')!==false)return $html;
+  $m='<div class="founder-links">';
+  return substr_count($html,$m)===1 ? str_replace($m,$m.'<a class="btn btn-light" href="/about/kpono-abasi-akpabio/">Read founder profile</a>',$html) : $html;
+});
+$float='<script src="/assets/js/almond-whatsapp-float.js" defer></script>';
+$marketing=['index.html'];
+foreach(['services','products','downloads','tools','domains'] as $dir){
+ $d=$root.'/'.$dir;
+ if(!is_dir($d)||is_link($d))continue;
+ $it=new RecursiveIteratorIterator(new RecursiveDirectoryIterator($d,FilesystemIterator::SKIP_DOTS));
+ foreach($it as $f){
+  if(!$f->isFile()||$f->isLink()||$f->getFilename()!=='index.html')continue;
+  $rel=substr($f->getPathname(),strlen($root)+1);
+  if(substr_count($rel,'/')<=4)$marketing[]=$rel;
+ }
+}
+foreach($marketing as $rel)$patch($rel,static function(string $html)use($float):string{
+ if(strpos($html,'almond-whatsapp-float.js')!==false||substr_count(strtolower($html),'</body>')!==1)return $html;
+ return preg_replace('~</body>~i',$float."\n</body>",$html,1)??$html;
+});
+
 $manifest['_last_successful_check'] = $now;
 $atomic($manifestFile, json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n");
 $publicStatus = $root . '/.well-known/almond-cd-status.txt';

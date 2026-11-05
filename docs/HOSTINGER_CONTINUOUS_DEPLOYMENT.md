@@ -49,3 +49,5 @@ First disable cron in Hostinger. Restore the 2026-11-05 Hostinger backup if a fu
 ## Limitations
 
 This is **blog-only**, conflict-aware continuous delivery; it is not a full-site GitHub deployment or bidirectional Git synchronization. A separate audited process is required to pull newer live site files back into GitHub. It uses public GitHub raw content, requires outbound HTTPS and PHP CLI in Hostinger cron, and should be monitored for errors.
+## Safe site enhancements (Nov 5)
+The same Cron runner now adds the standalone Kpono-Abasi Akpabio founder page, floating WhatsApp CTA across existing static pages, and an exact-match Lulu Culture Foundation → KV Tasks portfolio card replacement. It never copies the older GitHub homepage over the live homepage; each surgical patch makes a backup. New founder URL is added to the existing sitemap. Blog pages get the same WhatsApp script on download. Changes to other existing files remain protected. Check Cron Jobs before adding another job.
