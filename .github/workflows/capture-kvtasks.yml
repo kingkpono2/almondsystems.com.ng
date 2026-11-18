@@ -56,5 +56,5 @@ jobs:
           git add assets/screenshots/kvtasks.png index.html
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Capture authentic KV Tasks homepage screenshot"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
