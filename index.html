@@ -852,6 +852,80 @@ details p{
   .hero .lead{color:#17394b;text-shadow:0 1px 0 rgba(255,255,255,.95);font-weight:550}
 }
 
+
+/* Premium portrait-mobile hero: image first, clean readable content below. */
+@media (max-width:620px){
+  .hero{
+    display:block;
+    min-height:0;
+    padding:340px 0 0;
+    background-color:#f7faf9;
+    background-image:none;
+    color:#102d40;
+  }
+  .hero::before{
+    inset:0 0 auto;
+    height:340px;
+    background-image:
+      linear-gradient(180deg,rgba(5,18,30,.10) 0%,rgba(5,18,30,.02) 58%,rgba(5,18,30,.30) 100%),
+      url("/assets/images/almond-hero-professional.jpg?v=20261118c");
+    background-size:cover;
+    background-position:62% 38%;
+    background-repeat:no-repeat;
+  }
+  .hero-copy{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:30px 22px 34px;
+    background:#f7faf9;
+  }
+  .hero .kicker{
+    color:#087f78;
+    font-size:.78rem;
+    letter-spacing:.15em;
+    margin-bottom:16px;
+    font-weight:850;
+  }
+  .hero .kicker::before{background:#0b9690}
+  .hero h1{
+    max-width:520px;
+    margin:0 0 16px;
+    color:#102d40;
+    font-size:clamp(2.15rem,8vw,2.8rem);
+    line-height:1.06;
+    letter-spacing:-.045em;
+    font-weight:850;
+    text-shadow:none;
+    text-wrap:balance;
+  }
+  .hero .lead{
+    max-width:520px;
+    margin:0 0 24px;
+    color:#405563;
+    font-size:1.04rem;
+    line-height:1.58;
+    font-weight:450;
+    text-shadow:none;
+  }
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+    width:100%;
+    max-width:430px;
+    align-items:stretch;
+  }
+  .hero-actions .btn{
+    width:100%;
+    min-height:54px;
+    border-radius:14px;
+    font-size:1rem;
+  }
+}
+
 </style>
 </head>
 
